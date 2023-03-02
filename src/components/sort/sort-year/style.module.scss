@@ -1,0 +1,22 @@
+.content{
+  @apply flex justify-center gap-2
+}
+.select{
+  @apply text-white w-[80px] outline-none border-t-2 border-b-2 border-blue-600;
+  background: none;
+}
+.option{
+  @apply max-h-[100px] overflow-hidden bg-gray-800 p-1
+}
+.select::-webkit-scrollbar {
+  width: 12px;               /* ширина всей полосы прокрутки */
+}
+.select::-webkit-scrollbar-track {
+  background: rgba(16, 16, 16, 0.67);        /* цвет зоны отслеживания */
+}
+.select::-webkit-scrollbar-thumb {
+  background-color: #9898ab;    /* цвет бегунка */
+  height: 50px;
+  border-radius: 5px
+
+}

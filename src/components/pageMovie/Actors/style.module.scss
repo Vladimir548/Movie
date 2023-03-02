@@ -1,0 +1,12 @@
+.cont{
+  @apply flex justify-center  flex-wrap gap-5 mt-10 flex-col max-w-[1250px] mx-auto
+}
+.actors_item {
+  @apply  w-[250px] border border-blue-600 px-3 py-2 ;
+  & h3{
+    @apply text-[20px]
+  }
+}
+.actors_list{
+  @apply flex flex-wrap
+}

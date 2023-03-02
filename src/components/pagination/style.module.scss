@@ -1,0 +1,19 @@
+.pagination_btn{
+@apply flex justify-center
+
+}
+.next,.prev{
+   @apply w-[50px] h-[50px] bg-amber-500 mx-7 rounded-lg transition-colors duration-300 ease-in-out;
+  &:hover{
+    @apply bg-amber-600
+  }
+ }
+.prev{
+  @apply rotate-180;
+ &:disabled{
+   @apply bg-amber-600
+ }
+}
+//.next img{
+//  @apply text-[40px] font-bold
+//}

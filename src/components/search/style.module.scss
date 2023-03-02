@@ -1,0 +1,41 @@
+.transparent{
+  position: relative;
+  max-width: 200px;
+  padding: 0px 10px;
+}
+.inner{
+  display: flex;
+  align-items: center;
+  max-width: 150px;
+  background: #282828;
+  padding: 0 15px;
+  margin: 10px 0 15px;
+  border-width: 0;
+
+  border-radius: 20px;
+}
+.inner input {
+  display: block;
+  max-width: 150px;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+.btn{
+  @apply bg-gray-600 py-[4px] px-[10px] ml-3  rounded-tr-lg rounded-br-lg  hover:bg-gray-500
+}
+.btn:disabled{
+  @apply bg-gray-400
+}
+.dropdown{
+  @apply bg-[#505051] absolute top-[36px] left-0 w-full h-[200px] z-10 rounded-lg overflow-y-scroll
+
+}
+.dropdown::-webkit-scrollbar{
+    @apply bg-gray-800 opacity-80 rounded-lg
+}
+.dropdown::-webkit-scrollbar-thumb{
+        @apply bg-gray-500 rounded-lg
+
+}

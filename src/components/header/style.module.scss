@@ -1,0 +1,32 @@
+.header{
+  @apply shadow-md  shadow-blue-400 h-[70px] mb-8 px-4
+
+}
+.logo{
+  @apply font-bold text-[22px] tracking-wider
+}
+.content{
+}
+@media (max-width: 426px){
+  .content{
+    height: 46px;
+  }
+}
+.list{
+  @apply flex justify-center;
+
+}
+.item{
+  @apply px-4 ;
+
+
+}
+.link{
+  @apply  text-[18px] transition-colors duration-500 ease-in-out border-2 border-transparent border-solid;
+  &:hover{
+    @apply  border-b-blue-400;
+  }
+  &:active{
+    @apply  border-b-blue-400;
+  }
+}

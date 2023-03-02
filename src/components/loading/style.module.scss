@@ -1,0 +1,29 @@
+.loading {
+  @apply my-[30px] flex justify-center  mx-auto;
+
+}
+.loading div {
+  @apply bg-blue-400  mx-3 ease-in-out ;
+  animation-duration: .9s;
+  animation-name: load;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.loading .two {
+    animation-delay: .3s;
+  }
+
+.loading .three {
+    animation-delay: .6s;
+  }
+
+  @keyframes load {
+    to {
+
+      opacity: 2;
+      transform: translateY(-10px);
+    }
+  }
