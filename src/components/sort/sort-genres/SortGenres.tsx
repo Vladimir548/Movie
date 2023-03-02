@@ -20,7 +20,7 @@ export const SortGenres = () => {
 	const dispatch = useAppDispatch()
 
 	const genreItem = useAppSelector(state => state.genres.genre)
-	console.log(genreItem)
+
 	const workGenre = (genre: IGenres) => {
 		dispatch(addGenres(genre))
 		dispatch(removeGenres(String(genre.slug)))

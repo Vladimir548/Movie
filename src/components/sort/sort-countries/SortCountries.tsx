@@ -16,7 +16,7 @@ export const SortCountries = () => {
 		error,
 		isLoading
 	} = useQuery(['docs'], () => MovieServices.getCountriesMovie())
-	console.log(countries)
+
 	return (
 		<div className={style.scroll}>
 			<div className=''>

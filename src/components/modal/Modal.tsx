@@ -102,11 +102,11 @@ export function NestedModal({ children }: PropsModal) {
 					<div className='flex justify-center gap-2'>
 						<ApplyBtn>
 							<Link to={'/movieByGenres'}>
-								<button onClick={handleClose}>Применить</button>
+								<span onClick={handleClose}>Применить</span>
 							</Link>
 						</ApplyBtn>
 						<CloseBtn>
-							<button onClick={handleClose}>Закрыть</button>
+							<span onClick={handleClose}>Закрыть</span>
 						</CloseBtn>
 					</div>
 				</Box>

@@ -7,13 +7,13 @@ interface PropsApply {
 export const ApplyBtn = ({ children }: PropsApply) => {
 	return (
 		<div>
-			<button
+			<div
 				className={
-					'border-2 border-blue-600 py-3 w-[100px] rounded-lg ease-in-out hover:bg-blue-800'
+					'border-2 border-blue-600 py-3 w-[100px]   rounded-lg ease-in-out hover:bg-blue-800 cursor-pointer'
 				}
 			>
-				{children}
-			</button>
+				<div className='text-center'>{children}</div>
+			</div>
 		</div>
 	)
 }

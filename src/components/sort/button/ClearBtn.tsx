@@ -7,13 +7,13 @@ interface ICLear {
 export const ClearBtn = ({ children }: ICLear) => {
 	return (
 		<div>
-			<button
+			<div
 				className={
-					'border-2 border-red-600 py-3 w-[100px] rounded-lg ease-in-out hover:bg-red-600'
+					'border-2 border-red-600 py-3 w-[100px] text-center rounded-lg ease-in-out hover:bg-red-600 cursor-pointer'
 				}
 			>
 				{children}
-			</button>
+			</div>
 		</div>
 	)
 }

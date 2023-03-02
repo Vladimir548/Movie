@@ -26,11 +26,15 @@ export const SearchModal = () => {
 
 	return (
 		<div>
-			<Button onClick={handleOpen}>
-				<IconButton size='large' aria-label='search' color='inherit'>
-					<SearchIcon />
-				</IconButton>
-			</Button>
+			<IconButton
+				onClick={handleOpen}
+				size='large'
+				aria-label='search'
+				color='inherit'
+			>
+				<SearchIcon />
+			</IconButton>
+
 			<Modal
 				className={'overflow-y-auto'}
 				open={open}

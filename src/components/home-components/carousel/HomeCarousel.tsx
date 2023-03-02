@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../../services/movie.services'
 import { Navigation } from 'swiper'
 import style from './style.module.scss'
+
 export const HomeCarousel = () => {
 	const {
 		data: docs,
@@ -14,10 +15,11 @@ export const HomeCarousel = () => {
 	} = useQuery(['docs'], () => MovieServices.getCarouselMovie(), {
 		select: ({ docs }) => docs
 	})
-	console.log(docs)
+
 	return (
 		<div>
 			<Swiper
+				key={'caros'}
 				slidesPerView={1}
 				spaceBetween={20}
 				loop={true}
@@ -28,6 +30,7 @@ export const HomeCarousel = () => {
 						slidesPerView: 2
 					}
 				}}
+				className='mySwiper'
 			>
 				{docs?.map(item => (
 					<SwiperSlide key={item.backdrop.url}>

@@ -29,7 +29,7 @@ export const SortYear = () => {
 
 		dispatch(getByYear(e.target.value))
 	}
-	console.log(withYear)
+
 	return (
 		<div>
 			<div className={style.content}>

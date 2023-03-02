@@ -130,16 +130,9 @@ export function DrawerAppBar(props: Props) {
 						<SearchModal />
 					</Box>
 					<Box>
-						<IconButton
-							sx={{ fontSize: '24px' }}
-							aria-label='search'
-							color='inherit'
-							size={'large'}
-						>
-							<NestedModal>
-								<PlaceholderSort />
-							</NestedModal>
-						</IconButton>
+						<NestedModal>
+							<PlaceholderSort />
+						</NestedModal>
 					</Box>
 					<Box
 						sx={{

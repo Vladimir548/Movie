@@ -1,7 +1,6 @@
 import React from 'react'
-import { Movie } from './movie/Movie'
 import { HomeCarousel } from './home-components/carousel/HomeCarousel'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { NewCinema } from './home-components/new-kino/NewCinema'
 
 export const Home = () => {
 	return (
@@ -9,7 +8,9 @@ export const Home = () => {
 			<div>
 				<HomeCarousel />
 			</div>
-			<div className={' max-w-[1260px] mx-auto '}></div>
+			{/*<div className={' max-w-[1260px] mx-auto '}>*/}
+			{/*	<NewCinema />*/}
+			{/*</div>*/}
 		</div>
 	)
 }

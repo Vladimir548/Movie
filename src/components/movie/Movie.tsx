@@ -23,7 +23,9 @@ export const Movie = () => {
 	return (
 		<div>
 			{isLoading && <Loading />}
-
+			<NestedModal>
+				<PlaceholderSort />
+			</NestedModal>
 			<div className='flex flex-wrap justify-center gap-3'>
 				{docs?.map(movie => (
 					<MovieItem key={movie.id} movie={movie} />

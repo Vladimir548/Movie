@@ -7,13 +7,13 @@ interface PropsClose {
 export const CloseBtn = ({ children }: PropsClose) => {
 	return (
 		<div>
-			<button
+			<div
 				className={
-					'border-gray-400 border-2 rounded-lg w-[100px] py-3 ease-in-out hover:bg-gray-600'
+					'border-gray-400 border-2 rounded-lg w-[100px] text-center py-3 ease-in-out hover:bg-gray-600 cursor-pointer'
 				}
 			>
 				{children}
-			</button>
+			</div>
 		</div>
 	)
 }
