@@ -10,13 +10,12 @@ import { IGenres } from '../../../models/movie.interface'
 import style from './style.module.scss'
 
 export const SortGenres = () => {
-	const param = useParams()
 	const {
 		data: genres,
 		error,
 		isLoading
 	} = useQuery(['docs'], () => MovieServices.getGenresMovie())
-
+	console.log(genres)
 	const dispatch = useAppDispatch()
 
 	const genreItem = useAppSelector(state => state.genres.genre)

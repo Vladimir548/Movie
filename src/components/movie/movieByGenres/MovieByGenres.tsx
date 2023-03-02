@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../../services/movie.services'
 import { useAppSelector } from '../../hooks/Hooks'
@@ -10,6 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { NotFound } from '../../not-found/NotFound'
 
 export const MovieByGenres = () => {
+	useEffect(() => {})
 	const navigate = useNavigate()
 	const goBack = () => navigate(-1)
 	const genres = useAppSelector(state => state.genres.genre)
@@ -18,7 +19,7 @@ export const MovieByGenres = () => {
 	const { withYear, byYear } = useAppSelector(state => state.year)
 	const genre = genres.map(item => item.name).join(`&genres.name=`)
 	const countrie = countries.map(item => item.name).join(' &countries.name=')
-	console.log(genre)
+
 	const {
 		data: docs,
 		error,
@@ -40,7 +41,7 @@ export const MovieByGenres = () => {
 	)
 	return (
 		<div>
-			{/*{isLoading && <Loading />}*/}
+			{isLoading && <Loading />}
 
 			<div className='fixed top-[70px] left-[0px]'>
 				<button

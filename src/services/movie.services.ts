@@ -95,27 +95,27 @@ export const MovieServices = {
 		)
 
 		return response.data
-	},
-	async getCarouselMovie() {
-		const response = await axios.get<IMovieResponse>(`/movie`, {
-			params: {
-				token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
-				selectFields: 'backdrop logo poster',
-				year: '2016-2023',
-				type: 'movie',
-				page: 1
-			}
-		})
-		return response.data
-	},
-	async getNewCinemaMovie() {
-		const response = await axios.get<IMovieResponse>(`/movie`, {
-			params: {
-				token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
-				sortField: 'rating.kp',
-				year: 2023
-			}
-		})
-		return response.data
 	}
+	// async getCarouselMovie() {
+	// 	const response = await axios.get<IMovieResponse>(`/movie`, {
+	// 		params: {
+	// 			token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+	// 			selectFields: 'backdrop logo poster',
+	// 			year: '2016-2023',
+	// 			type: 'movie',
+	// 			page: 1
+	// 		}
+	// 	})
+	// 	return response.data
+	// },
+	// async getNewCinemaMovie() {
+	// 	const response = await axios.get<IMovieResponse>(`/movie`, {
+	// 		params: {
+	// 			token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+	// 			sortField: 'rating.kp',
+	// 			year: 2023
+	// 		}
+	// 	})
+	// 	return response.data
+	// }
 }
