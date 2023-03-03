@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Home } from './components/Home'
+import { Home } from './components/home/Home'
 import { ItemMovie } from './components/pageMovie/ItemMovie'
 import { Movie } from './components/movie/Movie'
 import { DrawerAppBar } from './components/header/Menu'

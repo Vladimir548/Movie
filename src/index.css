@@ -3,11 +3,11 @@
 @tailwind utilities;
 body{
   @apply bg-black text-gray-100;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 @media (max-width: 426px){
   body{
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 img{

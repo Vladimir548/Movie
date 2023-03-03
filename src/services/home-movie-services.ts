@@ -15,5 +15,26 @@ export const HomeMovieServices = {
 			}
 		})
 		return response.data
+	},
+	async getTopTenCinema() {
+		const response = await axios.get<IMovieResponse>('/movie?top10=!null', {
+			params: {
+				token: token,
+				sortField: 'rating.kp'
+			}
+		})
+		return response.data
+	},
+	async getCarouselMovie() {
+		const response = await axios.get<IMovieResponse>(`/movie`, {
+			params: {
+				token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+				selectFields: 'backdrop logo poster',
+				year: '2016-2023',
+				type: 'movie',
+				page: 1
+			}
+		})
+		return response.data
 	}
 }

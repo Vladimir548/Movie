@@ -47,12 +47,14 @@ export const ItemMovie = () => {
 						<h1 className={style.title}>{docs?.name}</h1>
 						<h6 className={style.subtitle}>{docs?.alternativeName}</h6>
 						<p className={style.description}>{docs?.shortDescription}</p>
-						<h2 className={style.descrip_film}>О фильме</h2>
+						<h2 className={style.descrip_film}>
+							О {docs?.type === 'movie' ? 'фильме' : 'сериале'}
+						</h2>
 						<ul className={style.params}>
 							<li>
 								<span className={style.text_muted}>Рейтинг</span>
 								<span>
-									{Number(docs?.rating.kp).toFixed(1)} KP{' '}
+									{Number(docs?.rating.kp).toFixed(1)} Kp{' '}
 									{Number(docs?.rating?.imdb).toFixed(1)} IMDB
 								</span>
 							</li>
