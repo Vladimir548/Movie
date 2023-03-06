@@ -13,7 +13,7 @@ export const Home = () => {
 				<div className='mt-5 '>
 					<h2 className={style.title}>Новинки</h2>
 					<div className=''>
-						<NewCinema />
+						<NewCinema key={2} />
 					</div>
 				</div>
 				<div>

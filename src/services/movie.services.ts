@@ -2,15 +2,15 @@ import axios from 'axios'
 import { IGenres, IMovie, IMovieResponse } from '../models/movie.interface'
 
 axios.defaults.baseURL = 'https://api.kinopoisk.dev/v1'
-
+const token = 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS'
 export const MovieServices = {
 	async getMovie(pageNumber: number) {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
-				token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+				token: token,
 				page: pageNumber,
 				type: 'movie',
-				limit: 36
+				limit: 35
 			}
 		})
 		return response.data
@@ -18,7 +18,7 @@ export const MovieServices = {
 	async getIDMovie(id: string) {
 		const response = await axios.get<IMovie>(`/movie/${id}`, {
 			params: {
-				token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS'
+				token: token
 			}
 		})
 		return response.data
@@ -27,7 +27,7 @@ export const MovieServices = {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
 				name: name,
-				token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+				token: token,
 				sortField: 'rating.kp'
 			}
 		})
@@ -39,7 +39,7 @@ export const MovieServices = {
 			'/movie?search=6-10&field=rating.kp',
 			{
 				params: {
-					token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+					token: token,
 					search: name,
 					field: 'name',
 					limit: 8
@@ -53,7 +53,7 @@ export const MovieServices = {
 			'movie/possible-values-by-field?field=genres.name',
 			{
 				params: {
-					token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS'
+					token: token
 				}
 			}
 		)
@@ -65,7 +65,7 @@ export const MovieServices = {
 			'movie/possible-values-by-field?field=countries.name&top10=countries.name',
 			{
 				params: {
-					token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS'
+					token: token
 				}
 			}
 		)
@@ -88,7 +88,7 @@ export const MovieServices = {
 			}&search=${withYear}-${byYear}&field=year`,
 			{
 				params: {
-					token: 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS',
+					token: token,
 					limit: 36
 				}
 			}

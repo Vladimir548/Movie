@@ -1,24 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IInitialState } from '../../../models/inititalState.interface'
 type TPageNumber = {
-	pageNumber: number
+	pageNumberMovie: number
+	pageNumberSerial: number
 }
 const initialState: TPageNumber = {
-	pageNumber: 1
+	pageNumberMovie: 1,
+	pageNumberSerial: 1
 }
 
 const paginationSlice = createSlice({
 	name: 'pagination',
 	initialState,
 	reducers: {
-		handlePrevPageNumber(state) {
-			state.pageNumber--
+		handlePrevPageNumberMovie(state) {
+			state.pageNumberMovie--
 		},
-		handleNextPageNumber(state) {
-			state.pageNumber++
+		handleNextPageNumberMovie(state) {
+			state.pageNumberMovie++
+		},
+		handlePrevPageNumberSerial(state) {
+			state.pageNumberSerial--
+		},
+		handleNextPageNumberSerial(state) {
+			state.pageNumberSerial++
 		}
 	}
 })
-export const { handleNextPageNumber, handlePrevPageNumber } =
-	paginationSlice.actions
+export const {
+	handleNextPageNumberMovie,
+	handlePrevPageNumberMovie,
+	handlePrevPageNumberSerial,
+	handleNextPageNumberSerial
+} = paginationSlice.actions
 export default paginationSlice.reducer

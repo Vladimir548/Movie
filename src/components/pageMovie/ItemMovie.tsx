@@ -4,11 +4,22 @@ import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../services/movie.services'
 
 import style from './style.module.scss'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
+import { SimilarKino } from '../similar-kino/SimilarKino'
+import { MovieActors } from './Actors/MovieActors'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useAppDispatch, useAppSelector } from '../hooks/Hooks'
+import {
+	addToFavorites,
+	removeToFavorites
+} from '../redux/slices/favouritesSlice'
+import { ButtonBack } from '../button-back/ButtonBack'
+import { Loading } from '../loading/Loading'
 export const ItemMovie = () => {
-	const navigate = useNavigate()
-	const goBack = () => navigate(-1)
+	const dispatch = useAppDispatch()
+	const { currentItem } = useAppSelector(state => state.favourites)
+
 	const params = useParams()
 	const [descrip, setDescrip] = useState(false)
 	const {
@@ -18,6 +29,8 @@ export const ItemMovie = () => {
 	} = useQuery(['docs', params.id], () =>
 		MovieServices.getIDMovie(params.id || ' ')
 	)
+	const isInFavourites = currentItem.some(item => item.id === docs?.id)
+	if (error) return <h1>Произошла ошибка:(</h1>
 	return (
 		<div
 			style={{
@@ -27,26 +40,34 @@ export const ItemMovie = () => {
 				backgroundPosition: 'center'
 			}}
 		>
-			<div className={style.button_back}>
-				<button
-					className={
-						'w-[40px] h-[40px] bg-[#00000085] rounded-3xl shadow-[0px 3px 8px 0px rgba(252, 254, 255, 0.2)]'
-					}
-					onClick={goBack}
-				>
-					<ArrowBackIcon />
-				</button>
+			<div className=''>{isLoading && <Loading />}</div>
+			<div>
+				<ButtonBack />
 			</div>
 			<div className={style.container}>
 				<div className={style.wrapper}>
 					<div className={style.wrapper_col_1}>
-						<img className={style.poster} src={docs?.poster.url} alt='' />
+						<img className={style.poster} src={docs?.poster?.url} alt='' />
 					</div>
 
 					<div className={style.wrapper_col_2}>
 						<h1 className={style.title}>{docs?.name}</h1>
 						<h6 className={style.subtitle}>{docs?.alternativeName}</h6>
 						<p className={style.description}>{docs?.shortDescription}</p>
+						<span
+							className='cursor-pointer'
+							onClick={
+								isInFavourites
+									? () => dispatch(removeToFavorites(docs!.id))
+									: () => dispatch(addToFavorites(docs!))
+							}
+						>
+							{isInFavourites ? (
+								<FavoriteIcon color={'error'} />
+							) : (
+								<FavoriteBorderIcon color={'error'} />
+							)}
+						</span>
 						<h2 className={style.descrip_film}>
 							О {docs?.type === 'movie' ? 'фильме' : 'сериале'}
 						</h2>
@@ -94,7 +115,7 @@ export const ItemMovie = () => {
 					</div>
 				</div>
 				<div>
-					<h3 className={'text-[24px] font-bold'}>Описание</h3>
+					<h3 className={'text-[24px] font-bold '}>Описание</h3>
 					<p className={descrip ? style.falseDescrip : style.trueDescrip}>
 						{docs?.description}
 					</p>
@@ -105,24 +126,37 @@ export const ItemMovie = () => {
 						{descrip ? 'Скрыть описание' : 'Подробное описание'}
 					</button>
 				</div>
+
+				{docs?.type === 'tv-series' && docs?.seasonsInfo.length >= 1 ? (
+					<div>
+						<h3 className={'text-[25px] font-bold'}>Информация о сезонах</h3>
+						<div className='  flex flex-wrap gap-5'>
+							{docs?.seasonsInfo.map(season => (
+								<div>
+									<span>
+										Сезон: {season.number} Серий: {season.episodesCount}
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+				) : (
+					''
+				)}
 				<div className={style.block_actors}>
 					<h3 className={'text-[24px] font-bold'}>Актеры</h3>
-					<div className={style.person_container}>
-						{docs?.persons.map(person => (
-							<div className={'flex flex-col items-center'} key={person.id}>
-								<img
-									key={person.photo}
-									className={style.person_photo}
-									src={person.photo}
-									alt=''
-								/>
-								<span key={person.name} className={style.name_actors}>
-									{person.name}
-								</span>
-							</div>
-						))}
-					</div>
+					<MovieActors persons={docs?.persons} />
 				</div>
+				{docs?.similarMovies?.length !== undefined ? (
+					<div className={style.similar_kino}>
+						<h3>Похожие</h3>
+						<div className=''>
+							<SimilarKino key={docs?.id} similarMovies={docs?.similarMovies} />
+						</div>
+					</div>
+				) : (
+					''
+				)}
 			</div>
 		</div>
 	)

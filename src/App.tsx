@@ -5,8 +5,11 @@ import { ItemMovie } from './components/pageMovie/ItemMovie'
 import { Movie } from './components/movie/Movie'
 import { DrawerAppBar } from './components/header/Menu'
 import { MovieSearch } from './components/movie/movieSearch/MovieSearch'
-import { SortGenres } from './components/sort/sort-genres/SortGenres'
 import { MovieByGenres } from './components/movie/movieByGenres/MovieByGenres'
+import { Serial } from './components/serial/Serial'
+import { Favourites } from './components/favourites/Favourites'
+import { FavouritesMovie } from './components/favourites/favourites-movie/FavouritesMovie'
+import { FavouritesSeries } from './components/favourites/favourites-serial/FavouritesSeries'
 function App() {
 	return (
 		<div>
@@ -14,10 +17,13 @@ function App() {
 			<Routes>
 				<Route path={'/'} element={<Home />} />
 				<Route path={'/movie'} element={<Movie />} />
+				<Route path={'/serials'} element={<Serial />} />
 				<Route path={'/movie/:id'} element={<ItemMovie />} />
 				<Route path={'/movie/search/:name'} element={<MovieSearch />} />
-
-				<Route path={'/movieByGenres'} element={<MovieByGenres />} />
+				<Route path={'/filter'} element={<MovieByGenres />} />
+				<Route path={'/favourites'} element={<Favourites />} />
+				<Route path={'/favourites/movie'} element={<FavouritesMovie />} />
+				<Route path={'/favourites/series'} element={<FavouritesSeries />} />
 			</Routes>
 		</div>
 	)

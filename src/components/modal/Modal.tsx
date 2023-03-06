@@ -101,7 +101,7 @@ export function NestedModal({ children }: PropsModal) {
 					{children}
 					<div className='flex justify-center gap-2'>
 						<ApplyBtn>
-							<Link to={'/movieByGenres'}>
+							<Link to={'/filter'}>
 								<span onClick={handleClose}>Применить</span>
 							</Link>
 						</ApplyBtn>

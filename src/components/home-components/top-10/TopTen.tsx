@@ -12,7 +12,9 @@ export const TopTen = () => {
 		data: docs,
 		isLoading,
 		error
-	} = useQuery(['docs-now-watch'], () => HomeMovieServices.getTopTenCinema())
+	} = useQuery(['docs-now-watch'], () => HomeMovieServices.getTopTenCinema(), {
+		select: docs => docs
+	})
 
 	return (
 		<div>
@@ -49,6 +51,7 @@ export const TopTen = () => {
 							</Link>
 							<div className={style.kino_info}>
 								<span
+									key={item.rating?.kp}
 									className={
 										item.rating.kp >= 7
 											? 'bg-green-500 px-2 font-bold'

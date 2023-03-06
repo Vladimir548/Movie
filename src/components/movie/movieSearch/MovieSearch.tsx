@@ -18,9 +18,13 @@ export const MovieSearch = () => {
 		data: docs,
 		error,
 		isLoading
-	} = useQuery(['docs', name], () => MovieServices.getSearchMovie(name), {
-		select: ({ docs }) => docs
-	})
+	} = useQuery(
+		['docs', params.name],
+		() => MovieServices.getSearchMovie(params.name || ''),
+		{
+			select: ({ docs }) => docs
+		}
+	)
 
 	return (
 		<div className={'mx-auto'}>
@@ -41,6 +45,7 @@ export const MovieSearch = () => {
 						>
 							<div className={style.card}>
 								<img
+									key={movieSearch.name || movieSearch.alternativeName}
 									className={style.img}
 									src={movieSearch.poster?.url}
 									alt={

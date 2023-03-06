@@ -22,6 +22,7 @@ export interface IMovie {
 		value: number
 		currency: string
 	}
+	seasonsInfo: ISeasons[]
 	id: number
 	logo: {
 		url: string
@@ -31,6 +32,7 @@ export interface IMovie {
 		previewUrl: string
 		url: string
 	}
+	similarMovies: ISimilar[]
 	movieLength: number
 	name: string
 	names: {
@@ -91,4 +93,19 @@ export interface IPerson {
 export interface IGenres {
 	name: string
 	slug: string
+}
+export interface ISeasons {
+	number: number
+	episodesCount: number
+}
+
+export interface ISimilar {
+	alternativeName: string
+	id: number
+	name: string
+	type: string
+	poster: {
+		previewUrl: string
+		url: string
+	}
 }

@@ -10,7 +10,7 @@ import { NestedModal } from '../modal/Modal'
 import { SortYear } from '../sort/sort-year/SortYear'
 import Box from '@mui/material/Box'
 export const Movie = () => {
-	const pageNumber = useAppSelector(state => state.pagination.pageNumber)
+	const pageNumber = useAppSelector(state => state.pagination.pageNumberMovie)
 
 	const {
 		data: docs,

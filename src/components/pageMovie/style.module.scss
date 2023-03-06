@@ -121,7 +121,8 @@
 }
 .falseDescrip{
   -webkit-line-clamp: none;
-  @apply text-gray-400;
+  @apply text-gray-400 ;
+  max-width: 600px;
 }
 .trueDescrip{
   @apply text-gray-400;
@@ -130,61 +131,14 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  max-width: 600px;
 
 }
-.block_actors{
-  @apply mt-4
-}
-.person_container{
-  @apply grid grid-cols-6  gap-2 overflow-x-auto;
-  height: 300px;
-}
-.person_container::-webkit-scrollbar {
-  width: 10px;               /* ширина всей полосы прокрутки */
-}
 
-.person_container::-webkit-scrollbar-track {
-  background: rgba(16, 16, 16, 0.67);        /* цвет зоны отслеживания */
+.similar_kino{
+  margin-top: 20px;
 }
-
-.person_container::-webkit-scrollbar-thumb {
-  background-color: #e8e8f1;    /* цвет бегунка */
-  height: 50px;
-  border-radius: 5px
-
-}
-.name_actors{
-
-  font-size: 16px;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-}
-.person_photo{
-  @apply  object-cover;
-  height: 200px;
-  width: 200px;
-}
-@media (max-width:1010px ){
-  .person_container{
-    @apply grid grid-cols-5
-  }
-}
-@media (max-width: 797px){
-  .person_container{
-    @apply grid grid-cols-4
-  }
-}
-@media (max-width: 567px){
-  .person_container{
-    @apply grid grid-cols-3
-  }
-}
-@media (max-width: 426px){
-  .person_photo{
-    width: 150px;
-    height: 150px;
-  }
+.similar_kino h3{
+  font-size: 24px;
+  font-weight: bold;
 }

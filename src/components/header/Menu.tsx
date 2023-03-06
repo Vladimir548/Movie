@@ -1,7 +1,6 @@
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import SearchIcon from '@mui/icons-material/Search'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
@@ -13,13 +12,17 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { CustomizedInputBase } from '../search/Search'
 import { SearchModal } from '../search-modal/SearchModal'
 import style from './style.module.scss'
 import { NestedModal } from '../modal/Modal'
 import { PlaceholderSort } from '../sort/PlaceholderSort'
-
+import HomeIcon from '@mui/icons-material/Home'
+import MovieIcon from '@mui/icons-material/Movie'
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies'
+import ChildCareIcon from '@mui/icons-material/ChildCare'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 interface Props {
 	window?: () => Window
 }
@@ -28,19 +31,23 @@ const drawerWidth = 240
 const navItems = [
 	{
 		name: 'Главная',
-		link: '/'
+		link: '/',
+		icons: <HomeIcon />
 	},
 	{
 		name: 'Фильмы',
-		link: '/movie'
+		link: '/movie',
+		icons: <MovieIcon />
 	},
 	{
 		name: 'Сериалы',
-		link: '/serials'
+		link: '/serials',
+		icons: <LocalMoviesIcon />
 	},
 	{
 		name: 'Мультфильмы',
-		link: '/cartoons'
+		link: '/cartoons',
+		icons: <ChildCareIcon />
 	}
 ]
 
@@ -69,9 +76,15 @@ export function DrawerAppBar(props: Props) {
 								flexDirection: 'column'
 							}}
 						>
-							<Link to={item.link}>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? 'text-red-700' : undefined
+								}
+								to={item.link}
+							>
+								<span>{item.icons}</span>
 								<ListItemText primary={item.name} />
-							</Link>
+							</NavLink>
 						</ListItemButton>
 					</ListItem>
 				))}
@@ -81,6 +94,9 @@ export function DrawerAppBar(props: Props) {
 
 	const container =
 		window !== undefined ? () => window().document.body : undefined
+	const activeStyle = {
+		colors: 'red'
+	}
 
 	return (
 		<Box
@@ -114,36 +130,61 @@ export function DrawerAppBar(props: Props) {
 					>
 						<Link to={'/'}>KinoScope</Link>
 					</Typography>
-					<Box
-						sx={{
-							display: { xs: 'none', md: 'block' }
-						}}
-					>
-						<CustomizedInputBase />
-					</Box>
-					<Box
-						sx={{
-							display: { xs: 'block', md: 'none' }
-						}}
-					>
-						{' '}
-						<SearchModal />
-					</Box>
+
 					<Box>
-						<NestedModal>
-							<PlaceholderSort />
-						</NestedModal>
+						<Box
+							sx={{
+								display: { xs: 'flex', md: 'none' },
+								alignItems: 'center'
+							}}
+						>
+							<SearchModal />
+							<NestedModal>
+								<PlaceholderSort />
+							</NestedModal>
+							<Link to={'/favourites'}>
+								<FavoriteIcon />
+							</Link>
+						</Box>
 					</Box>
+
 					<Box
 						sx={{
 							display: { xs: 'none', md: 'block' }
 						}}
 					>
 						{navItems.map(item => (
-							<Button key={item.link} sx={{ color: '#fff' }}>
-								<Link to={item.link}>{item.name}</Link>
+							<Button
+								key={item.link}
+								sx={{ color: '#fff', textTransform: 'none' }}
+							>
+								{' '}
+								<NavLink
+									className={({ isActive }) =>
+										isActive ? 'text-red-700' : undefined
+									}
+									to={item.link}
+								>
+									<span>{item.icons}</span>
+									{item.name}
+								</NavLink>
 							</Button>
 						))}
+					</Box>
+					<Box
+						sx={{
+							display: { xs: 'none', md: 'flex' },
+							alignItems: 'center'
+						}}
+					>
+						<CustomizedInputBase />
+
+						<NestedModal>
+							<PlaceholderSort />
+						</NestedModal>
+						<Link to={'/favourites'}>
+							<FavoriteIcon />
+						</Link>
 					</Box>
 				</Toolbar>
 			</AppBar>
@@ -154,7 +195,7 @@ export function DrawerAppBar(props: Props) {
 					open={mobileOpen}
 					onClose={handleDrawerToggle}
 					ModalProps={{
-						keepMounted: true // Better open performance on mobile.
+						keepMounted: true
 					}}
 					sx={{
 						display: { ms: 'none', md: 'block' },

@@ -3,29 +3,26 @@ import React, { FC } from 'react'
 import style from './style.module.scss'
 import { IPerson } from '../../../models/movie.interface'
 
-export const MovieActors: FC<{ persons: IPerson[] }> = ({ persons }) => {
+interface IActors {
+	persons?: IPerson[]
+}
+
+export const MovieActors = ({ persons }: IActors) => {
 	return (
-		<div>
-			<div className={style.cont}>
-				<div className=''>
-					<h2 className={'text-[22px]'}>Актеры</h2>
+		<div className={style.person_container}>
+			{persons?.map(person => (
+				<div className={'flex flex-col items-center'} key={person.id}>
+					<img
+						key={person.photo}
+						className={style.person_photo}
+						src={person.photo}
+						alt=''
+					/>
+					<span key={person.name} className={style.name_actors}>
+						{person.name}
+					</span>
 				</div>
-				<div className={style.actors_list}>
-					{persons?.map(person => (
-						<div key={person.id} className={style.actors_item}>
-							<div>
-								<img
-									key={person.id}
-									className={style.img_actors}
-									src={person.photo}
-									alt=''
-								/>
-							</div>
-							<h3>{person.name}</h3>
-						</div>
-					))}
-				</div>
-			</div>
+			))}
 		</div>
 	)
 }

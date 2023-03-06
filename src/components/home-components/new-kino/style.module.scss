@@ -4,15 +4,19 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
+  position: relative;
 
 
   &:hover img{
-    position: relative;
-    z-index: 3;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.19);
   }
 
   & img{
-    position: relative;
+
     overflow: hidden;
   }
 }

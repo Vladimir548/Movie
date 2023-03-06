@@ -14,7 +14,7 @@ export const SearchModal = () => {
 		top: '0%',
 		left: '0%',
 		width: '100%',
-		bgcolor: '#001d3a',
+		bgcolor: '#000000',
 		border: '2px solid #000',
 		minHeight: '100%',
 		boxShadow: 24,

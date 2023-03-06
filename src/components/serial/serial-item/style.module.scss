@@ -1,0 +1,42 @@
+.card{
+  @apply shadow-sm shadow-blue-600 flex  flex-col my-1 duration-300 ease-in-out  hover:shadow-red-600   ;
+  border-radius: 5px;
+  width: 250px;
+
+
+}
+.img{
+  @apply w-[200px] h-[250px] flex justify-center;
+  object-fit: cover;
+  margin: 10px auto 0 auto;
+}
+@media (max-width: 769px) {
+  .img{
+    @apply w-[130px] h-[160px] flex justify-center;
+    object-fit: cover;
+    margin: 0px auto 0 auto;
+  }
+  .card{
+    @apply shadow-sm shadow-blue-600 flex  flex-col my-1 duration-300 ease-in-out  hover:shadow-red-600   ;
+    border-radius: 5px;
+    width: 140px;
+  }
+}
+.descrip{
+  @apply px-3
+}
+.title{
+  font-size: 14px;
+  align-items: start;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  padding: 5px;
+  @apply font-bold
+}
+.info{
+  padding: 5px 5px;
+  @apply flex gap-4
+}
