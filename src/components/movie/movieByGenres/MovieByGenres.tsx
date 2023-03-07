@@ -59,7 +59,7 @@ export const MovieByGenres = () => {
 						<Link
 							className={'flex'}
 							key={movieSearch.id}
-							to={`/movie/${movieSearch.id}`}
+							to={`/cinema/${movieSearch.id}/${movieSearch.name}`}
 						>
 							<div className={style.card}>
 								<img

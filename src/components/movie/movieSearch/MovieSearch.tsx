@@ -45,7 +45,7 @@ export const MovieSearch = () => {
 						<Link
 							className={'flex justify-start'}
 							key={movieSearch.id}
-							to={`/movie/${movieSearch.id}`}
+							to={`/cinema/${movieSearch.id}/${movieSearch.name}`}
 						>
 							<div className={style.card}>
 								<img

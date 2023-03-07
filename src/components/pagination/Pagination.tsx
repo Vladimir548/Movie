@@ -1,42 +1,20 @@
-import React, { FC, useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../hooks/Hooks'
-import {
-	handleNextPageNumberMovie,
-	handlePrevPageNumberMovie
-} from '../redux/slices/paginationSlice'
+import React, { FC } from 'react'
+import style from '../serial/style.module.scss'
+import Stack from '@mui/material/Stack'
 
-import arrow from '../../img/arrow.svg'
-import style from './style.module.scss'
+interface IPagination {
+	pages: number
+	setPage: (num: number) => number
+	count: number
+	onChange: (_: any, num: number) => number
+	shape: string
+	color: string
+	variant: string
+	size: string
+	className: any
+	Pagination: any
+}
 
-export const Pagination: FC = () => {
-	const { pageNumberMovie, pageNumberSerial } = useAppSelector(
-		state => state.pagination
-	)
-
-	const dispatch = useAppDispatch()
-
-	const handleNextPage = () => {
-		dispatch(handleNextPageNumberMovie())
-	}
-	const handlePrevPage = () => {
-		dispatch(handlePrevPageNumberMovie())
-	}
-
-	return (
-		<div>
-			<div className={style.pagination_btn}>
-				<button
-					disabled={pageNumberMovie === 1 || pageNumberSerial === 1}
-					className={style.prev}
-					onClick={() => handlePrevPage()}
-				>
-					<img src={arrow} alt='' />
-				</button>
-				<span>Страница: {pageNumberMovie || pageNumberSerial}</span>
-				<button className={style.next} onClick={() => handleNextPage()}>
-					<img src={arrow} alt='' />
-				</button>
-			</div>
-		</div>
-	)
+export const Pagination = ({ pages, setPage }: IPagination) => {
+	return <span></span>
 }

@@ -17,7 +17,7 @@ export const FavouritesMovie = () => {
 			<div className=''>
 				<ButtonBack />
 			</div>
-			{currentItem.length === 0 ? (
+			{currentItem.filter(item => item.type === 'movie').length === 0 ? (
 				<div className={'flex flex-col justify-center text-center '}>
 					<FavouritesNotFound />
 				</div>
@@ -26,7 +26,11 @@ export const FavouritesMovie = () => {
 					{currentItem
 						?.filter(item => item.type === 'movie')
 						.map(item => (
-							<Link className={'flex'} key={item?.id} to={`/movie/${item?.id}`}>
+							<Link
+								className={'flex'}
+								key={item?.id}
+								to={`/cinema/${item?.id}/${item.name}`}
+							>
 								<div className={style.card}>
 									<img
 										className={style.img}

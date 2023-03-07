@@ -29,6 +29,14 @@ export const Favourites = () => {
 			>
 				Избранные сериалы
 			</Link>
+			<Link
+				className={
+					'py-3 px-5 rounded-lg border-2 border-blue-600 ease-in-out delay-300 hover:bg-blue-600'
+				}
+				to={'/favourites/cartoons'}
+			>
+				Избранные мультфильмы
+			</Link>
 		</div>
 	)
 }

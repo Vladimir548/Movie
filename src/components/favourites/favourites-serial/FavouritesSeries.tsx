@@ -18,7 +18,7 @@ export const FavouritesSeries = () => {
 			<div className=''>
 				<ButtonBack />
 			</div>
-			{currentItem.length === 0 ? (
+			{currentItem.filter(item => item.type === 'tv-series').length === 0 ? (
 				<div className={''}>
 					<FavouritesNotFound />
 				</div>
@@ -27,7 +27,11 @@ export const FavouritesSeries = () => {
 					{currentItem
 						.filter(item => item.type === 'tv-series')
 						.map(item => (
-							<Link className={'flex'} key={item?.id} to={`/movie/${item?.id}`}>
+							<Link
+								className={'flex'}
+								key={item?.id}
+								to={`/cinema/${item?.id}/${item.name}`}
+							>
 								<div className={style.card}>
 									<img
 										className={style.img}

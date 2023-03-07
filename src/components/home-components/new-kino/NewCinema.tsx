@@ -42,7 +42,7 @@ export const NewCinema = () => {
 			>
 				{docs?.docs.map(item => (
 					<SwiperSlide className={style.block} key={item.id}>
-						<Link to={`/movie/${item.id}`}>
+						<Link to={`/cinema/${item.id}/${item.name}`}>
 							<img
 								key={item.poster?.url}
 								className={style.poster}

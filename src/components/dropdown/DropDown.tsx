@@ -23,7 +23,7 @@ export const DropDown = () => {
 		<div className={'overflow-y-auto'}>
 			{isLoading && <Loading />}
 			{docs?.map(movie => (
-				<Link to={`/movie/${movie.id}`}>
+				<Link to={`/cinema/${movie.id}/${movie.name}`}>
 					<div
 						onClick={() => dispatch(getItemDropDown(false))}
 						className={

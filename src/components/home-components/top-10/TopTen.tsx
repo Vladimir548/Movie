@@ -46,7 +46,7 @@ export const TopTen = () => {
 				{docs?.docs.map(item => (
 					<SwiperSlide key={item.id} className={item.poster?.url}>
 						<div key={item.id} className={style.block}>
-							<Link to={`/movie/${item.id}`}>
+							<Link to={`/cinema/${item.id}/${item.name}`}>
 								<img key={item.poster?.url} src={item.poster?.url} alt={''} />
 							</Link>
 							<div className={style.kino_info}>

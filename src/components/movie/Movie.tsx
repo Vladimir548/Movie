@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../services/movie.services'
 import { MovieItem } from './MovieItem'
 import { Loading } from '../loading/Loading'
-
+import style from './style.module.scss'
 import Stack from '@mui/material/Stack'
 import Pagination from '@mui/material/Pagination'
 export const Movie = () => {
@@ -24,25 +24,7 @@ export const Movie = () => {
 					<MovieItem key={movie.id} movie={movie} />
 				))}
 			</div>
-			<Stack
-				className={'max-w-[300px] mx-auto mt-3 flex justify-center '}
-				spacing={2}
-				sx={{
-					'.css-1ysyrvn-MuiButtonBase-root-MuiPaginationItem-root': {
-						color: '#fff'
-					},
-					'.css-1ysyrvn-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected':
-						{
-							color: '#fff',
-							border: '1px solid rgba(25, 118, 210)',
-							background: 'rgba(25, 118, 210, 0.52)'
-						},
-
-					'.css-1scal0h-MuiPaginationItem-root': {
-						color: '#fff'
-					}
-				}}
-			>
+			<Stack className={'my-3 flex justify-center mx-auto '} spacing={2}>
 				<Pagination
 					count={docs?.pages}
 					onChange={(_, num) => setPage(num)}
@@ -50,6 +32,7 @@ export const Movie = () => {
 					color='primary'
 					variant='outlined'
 					size={'large'}
+					className={style.pagination}
 				/>
 			</Stack>
 		</div>

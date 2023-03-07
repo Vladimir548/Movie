@@ -3,14 +3,10 @@ import { IMovie } from '../../../models/movie.interface'
 
 interface IFavourites {
 	currentItem: IMovie[]
-	currentMovie: IMovie[]
-	currentSerial: IMovie[]
 }
 
 const initialState: IFavourites = {
-	currentItem: [],
-	currentMovie: [],
-	currentSerial: []
+	currentItem: []
 }
 
 const favouritesSlice = createSlice({
@@ -19,6 +15,7 @@ const favouritesSlice = createSlice({
 	reducers: {
 		addToFavorites(state, action: PayloadAction<IMovie>) {
 			state.currentItem = [...state.currentItem, action.payload]
+			console.log(state.currentItem)
 		},
 
 		removeToFavorites(state, action: PayloadAction<number>) {

@@ -11,7 +11,8 @@ import { Favourites } from './components/favourites/Favourites'
 import { FavouritesMovie } from './components/favourites/favourites-movie/FavouritesMovie'
 import { FavouritesSeries } from './components/favourites/favourites-serial/FavouritesSeries'
 import { Cartoon } from './components/cartoons/Cartoon'
-import { SerialItem } from './components/serial/serial-item/SerialItem'
+import { FavouritesCartoons } from './components/favourites/favourites-cartoons/FavouritesCartoons'
+
 function App() {
 	return (
 		<div>
@@ -27,6 +28,7 @@ function App() {
 				<Route path={'/favourites'} element={<Favourites />} />
 				<Route path={'/favourites/movie'} element={<FavouritesMovie />} />
 				<Route path={'/favourites/series'} element={<FavouritesSeries />} />
+				<Route path={'/favourites/cartoons'} element={<FavouritesCartoons />} />
 			</Routes>
 		</div>
 	)

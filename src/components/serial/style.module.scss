@@ -1,0 +1,21 @@
+.pagination {
+  max-width: 500px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+  & button{
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.57);
+
+    &:hover{
+      border: 1px solid rgba(25, 118, 210, 0.8);
+    }
+  }
+  & div{
+    color: #fff;
+  }
+
+}
+
