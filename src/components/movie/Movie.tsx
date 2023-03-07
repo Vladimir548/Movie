@@ -2,36 +2,56 @@ import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../services/movie.services'
 import { MovieItem } from './MovieItem'
-import { Pagination } from '../pagination/Pagination'
-import { useAppSelector } from '../hooks/Hooks'
 import { Loading } from '../loading/Loading'
-import { PlaceholderSort } from '../sort/PlaceholderSort'
-import { NestedModal } from '../modal/Modal'
-import { SortYear } from '../sort/sort-year/SortYear'
-import Box from '@mui/material/Box'
+
+import Stack from '@mui/material/Stack'
+import Pagination from '@mui/material/Pagination'
 export const Movie = () => {
-	const pageNumber = useAppSelector(state => state.pagination.pageNumberMovie)
+	const [page, setPage] = useState(1)
 
 	const {
 		data: docs,
 		error,
 		isLoading
-	} = useQuery(['docs', pageNumber], () => MovieServices.getMovie(pageNumber), {
-		select: ({ docs }) => docs
-	})
+	} = useQuery(['docs', page], () => MovieServices.getMovie(page), {})
 
 	return (
 		<div>
 			{isLoading && <Loading />}
 
 			<div className='flex flex-wrap justify-center gap-3'>
-				{docs?.map(movie => (
+				{docs?.docs.map(movie => (
 					<MovieItem key={movie.id} movie={movie} />
 				))}
 			</div>
-			<div className={'my-3'}>
-				<Pagination />
-			</div>
+			<Stack
+				className={'max-w-[300px] mx-auto mt-3 flex justify-center '}
+				spacing={2}
+				sx={{
+					'.css-1ysyrvn-MuiButtonBase-root-MuiPaginationItem-root': {
+						color: '#fff'
+					},
+					'.css-1ysyrvn-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected':
+						{
+							color: '#fff',
+							border: '1px solid rgba(25, 118, 210)',
+							background: 'rgba(25, 118, 210, 0.52)'
+						},
+
+					'.css-1scal0h-MuiPaginationItem-root': {
+						color: '#fff'
+					}
+				}}
+			>
+				<Pagination
+					count={docs?.pages}
+					onChange={(_, num) => setPage(num)}
+					shape='circular'
+					color='primary'
+					variant='outlined'
+					size={'large'}
+				/>
+			</Stack>
 		</div>
 	)
 }

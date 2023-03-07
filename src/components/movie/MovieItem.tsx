@@ -7,7 +7,11 @@ import star from '../../img/star.svg'
 
 export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
-		<Link className={'flex'} key={movie.id} to={`/movie/${movie.id}`}>
+		<Link
+			className={'flex'}
+			key={movie.id}
+			to={`/cinema/${movie.id}/${movie.name}`}
+		>
 			<div className={style.card}>
 				<img
 					className={style.img}

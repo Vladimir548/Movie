@@ -44,7 +44,7 @@ export const TopTen = () => {
 				}}
 			>
 				{docs?.docs.map(item => (
-					<SwiperSlide className={item.poster?.url}>
+					<SwiperSlide key={item.id} className={item.poster?.url}>
 						<div key={item.id} className={style.block}>
 							<Link to={`/movie/${item.id}`}>
 								<img key={item.poster?.url} src={item.poster?.url} alt={''} />

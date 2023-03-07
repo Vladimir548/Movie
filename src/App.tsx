@@ -10,6 +10,8 @@ import { Serial } from './components/serial/Serial'
 import { Favourites } from './components/favourites/Favourites'
 import { FavouritesMovie } from './components/favourites/favourites-movie/FavouritesMovie'
 import { FavouritesSeries } from './components/favourites/favourites-serial/FavouritesSeries'
+import { Cartoon } from './components/cartoons/Cartoon'
+import { SerialItem } from './components/serial/serial-item/SerialItem'
 function App() {
 	return (
 		<div>
@@ -18,7 +20,8 @@ function App() {
 				<Route path={'/'} element={<Home />} />
 				<Route path={'/movie'} element={<Movie />} />
 				<Route path={'/serials'} element={<Serial />} />
-				<Route path={'/movie/:id'} element={<ItemMovie />} />
+				<Route path={'/cartoons'} element={<Cartoon />} />
+				<Route path={'/cinema/:id/:name'} element={<ItemMovie />} />
 				<Route path={'/movie/search/:name'} element={<MovieSearch />} />
 				<Route path={'/filter'} element={<MovieByGenres />} />
 				<Route path={'/favourites'} element={<Favourites />} />

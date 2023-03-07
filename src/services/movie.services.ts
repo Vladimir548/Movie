@@ -4,11 +4,11 @@ import { IGenres, IMovie, IMovieResponse } from '../models/movie.interface'
 axios.defaults.baseURL = 'https://api.kinopoisk.dev/v1'
 const token = 'TY793WZ-Y9R45VN-KHZ5AH3-HXZK3GS'
 export const MovieServices = {
-	async getMovie(pageNumber: number) {
+	async getMovie(page: number) {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
 				token: token,
-				page: pageNumber,
+				page: page,
 				type: 'movie',
 				limit: 35
 			}

@@ -108,7 +108,8 @@ export function DrawerAppBar(props: Props) {
 			<AppBar
 				className={style.content}
 				sx={{
-					background: '#000',
+					background: 'rgba(0,0,0,0.29)',
+					backdropFilter: 'blur(5px)',
 					boxShadow: ' 0px 3px 8px 0px rgba(252, 254, 255, 0.2)'
 				}}
 				component='nav'

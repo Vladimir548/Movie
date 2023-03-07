@@ -9,6 +9,7 @@ import { getItemDropDown } from '../../redux/slices/dropwodnslice'
 import style from '../style.module.scss'
 import star from '../../../img/star.svg'
 import { NotFound } from '../../not-found/NotFound'
+import { ButtonBack } from '../../button-back/ButtonBack'
 
 export const MovieSearch = () => {
 	const name = useAppSelector(state => state.search.name)
@@ -28,6 +29,9 @@ export const MovieSearch = () => {
 
 	return (
 		<div className={'mx-auto'}>
+			<div className=''>
+				<ButtonBack />
+			</div>
 			{isLoading && <Loading />}
 			{docs?.length === 0 ? (
 				<NotFound />

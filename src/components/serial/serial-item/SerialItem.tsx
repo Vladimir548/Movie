@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom'
 
 export const SerialItem: FC<{ serial: IMovie }> = ({ serial }) => {
 	return (
-		<Link className={'flex'} key={serial.id} to={`/movie/${serial.id}`}>
+		<Link
+			className={'flex'}
+			key={serial.id}
+			to={`/cinema/${serial.id}/${serial.name}`}
+		>
 			<div className={style.card}>
 				<img
 					className={style.img}
