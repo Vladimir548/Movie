@@ -40,7 +40,7 @@ export const SimilarKino = ({ similarMovies }: ISimiralKino) => {
 			>
 				{similarMovies?.map(item => (
 					<SwiperSlide key={item.id}>
-						<Link to={`/movie/${item.id}`}>
+						<Link to={`/cinema/${item.id}/${item.name}`}>
 							<img
 								key={item.poster.url}
 								className={''}

@@ -4,25 +4,30 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
+
 }
+.poster{
+  @apply object-cover ;
+  max-height: 334px;
 
+}
+//@media (max-width: 500px){
+//  .poster{
+//   max-height: 250px;
+//  }
+//}
 
-.logo{
-  @apply absolute bottom-0 left-1/2 object-cover;
-  transform:translateX(-50%);
-  width: 300px;
+.name{
+  max-width: 250px;
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 @media (max-width: 450px){
-  .logo{
-   width: 200px;
-  }
-}
-.backdrop{
-  @apply object-cover max-w-full relative;
-
-}
-@media (max-width: 1080px){
-  .backdrop{
-    width: 450px;
+  .name{
+    font-size: 14px;
   }
 }

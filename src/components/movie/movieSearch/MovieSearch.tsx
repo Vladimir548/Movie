@@ -2,14 +2,13 @@ import React, { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../../services/movie.services'
 import { useAppDispatch, useAppSelector } from '../../hooks/Hooks'
-import { MovieSearchItem } from './MovieSearchItem'
 import { Link, useParams } from 'react-router-dom'
 import { Loading } from '../../loading/Loading'
-import { getItemDropDown } from '../../redux/slices/dropwodnslice'
 import style from '../style.module.scss'
 import star from '../../../img/star.svg'
 import { NotFound } from '../../not-found/NotFound'
 import { ButtonBack } from '../../button-back/ButtonBack'
+import { Card } from '../../card/Card'
 
 export const MovieSearch = () => {
 	const name = useAppSelector(state => state.search.name)
@@ -47,7 +46,7 @@ export const MovieSearch = () => {
 							key={movieSearch.id}
 							to={`/cinema/${movieSearch.id}/${movieSearch.name}`}
 						>
-							<div className={style.card}>
+							<Card>
 								<img
 									key={movieSearch.name || movieSearch.alternativeName}
 									className={style.img}
@@ -68,7 +67,7 @@ export const MovieSearch = () => {
 									</div>
 									<h2 className={style.title}>{movieSearch.name}</h2>
 								</div>
-							</div>
+							</Card>
 						</Link>
 					))}
 				</div>

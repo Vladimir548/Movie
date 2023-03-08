@@ -1,0 +1,16 @@
+.card{
+  @apply shadow-sm shadow-blue-600 flex  flex-col my-1 duration-300 ease-in-out    ;
+  border-radius: 5px;
+  width: 250px;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 769px) {
+ 
+  .card{
+    @apply shadow-sm shadow-blue-600 flex  flex-col my-1 duration-300 ease-in-out  hover:shadow-red-600   ;
+    border-radius: 5px;
+    width: 140px;
+  }
+}

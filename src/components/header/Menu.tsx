@@ -23,6 +23,8 @@ import MovieIcon from '@mui/icons-material/Movie'
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies'
 import ChildCareIcon from '@mui/icons-material/ChildCare'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+
+import logo from '../../img/logo/logo_two_variant.svg'
 interface Props {
 	window?: () => Window
 }
@@ -129,7 +131,10 @@ export function DrawerAppBar(props: Props) {
 						component='div'
 						sx={{ display: { xs: 'none', sm: 'block' } }}
 					>
-						<Link to={'/'}>KinoScope</Link>
+						<Link className={'flex items-center'} to={'/'}>
+							<img className={'bg-white rounded-[51px]'} src={logo} alt='' />
+							KinoScope
+						</Link>
 					</Typography>
 
 					<Box>

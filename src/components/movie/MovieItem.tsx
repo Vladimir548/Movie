@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import style from './style.module.scss'
 import star from '../../img/star.svg'
+import { Card } from '../card/Card'
 
 export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
@@ -12,7 +13,7 @@ export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 			key={movie.id}
 			to={`/cinema/${movie.id}/${movie.name}`}
 		>
-			<div className={style.card}>
+			<Card>
 				<img
 					className={style.img}
 					src={movie.poster?.url}
@@ -28,7 +29,7 @@ export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 					</div>
 					<h2 className={style.title}>{movie.name}</h2>
 				</div>
-			</div>
+			</Card>
 		</Link>
 	)
 }

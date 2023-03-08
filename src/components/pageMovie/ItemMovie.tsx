@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../services/movie.services'
-
 import style from './style.module.scss'
 
 import { SimilarKino } from '../similar-kino/SimilarKino'
@@ -16,6 +15,7 @@ import {
 } from '../redux/slices/favouritesSlice'
 import { ButtonBack } from '../button-back/ButtonBack'
 import { Loading } from '../loading/Loading'
+import { SequelPrequel } from '../sequels-prequels/SequelPrequel'
 export const ItemMovie = () => {
 	const dispatch = useAppDispatch()
 	const { currentItem } = useAppSelector(state => state.favourites)
@@ -51,23 +51,26 @@ export const ItemMovie = () => {
 					</div>
 
 					<div className={style.wrapper_col_2}>
-						<h1 className={style.title}>{docs?.name}</h1>
+						<div className='flex justify-between'>
+							<h1 className={style.title}>{docs?.name}</h1>
+							<span
+								className='cursor-pointer'
+								onClick={
+									isInFavourites
+										? () => dispatch(removeToFavorites(docs!.id))
+										: () => dispatch(addToFavorites(docs!))
+								}
+							>
+								{isInFavourites ? (
+									<FavoriteIcon color={'error'} />
+								) : (
+									<FavoriteBorderIcon color={'error'} />
+								)}
+							</span>
+						</div>
 						<h6 className={style.subtitle}>{docs?.alternativeName}</h6>
 						<p className={style.description}>{docs?.shortDescription}</p>
-						<span
-							className='cursor-pointer'
-							onClick={
-								isInFavourites
-									? () => dispatch(removeToFavorites(docs!.id))
-									: () => dispatch(addToFavorites(docs!))
-							}
-						>
-							{isInFavourites ? (
-								<FavoriteIcon color={'error'} />
-							) : (
-								<FavoriteBorderIcon color={'error'} />
-							)}
-						</span>
+
 						<h2 className={style.descrip_film}>
 							О {docs?.type === 'movie' ? 'фильме' : 'сериале'}
 						</h2>
@@ -147,7 +150,20 @@ export const ItemMovie = () => {
 					<h3 className={'text-[24px] font-bold'}>Актеры</h3>
 					<MovieActors persons={docs?.persons} />
 				</div>
-				{docs?.similarMovies?.length !== undefined ? (
+				{docs?.sequelsAndPrequels?.length !== 0 ? (
+					<div className={style.similar_kino}>
+						<h3>Сиквелы и приквелы</h3>
+						<div className=''>
+							<SequelPrequel
+								key={docs?.id}
+								sequelsAndPrequels={docs?.sequelsAndPrequels!}
+							/>
+						</div>
+					</div>
+				) : (
+					''
+				)}
+				{docs?.similarMovies?.length !== 0 ? (
 					<div className={style.similar_kino}>
 						<h3>Похожие</h3>
 						<div className=''>

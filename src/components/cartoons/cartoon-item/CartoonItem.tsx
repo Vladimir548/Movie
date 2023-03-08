@@ -3,6 +3,7 @@ import { IMovie } from '../../../models/movie.interface'
 import style from './style.module.scss'
 import star from '../../../img/star.svg'
 import { Link } from 'react-router-dom'
+import { Card } from '../../card/Card'
 
 export const CartoonItem: React.FC<{ cartoon: IMovie }> = ({ cartoon }) => {
 	return (
@@ -11,7 +12,7 @@ export const CartoonItem: React.FC<{ cartoon: IMovie }> = ({ cartoon }) => {
 			key={cartoon.id}
 			to={`/cinema/${cartoon.id}/${cartoon.name}`}
 		>
-			<div className={style.card}>
+			<Card>
 				<img
 					className={style.img}
 					src={cartoon.poster?.url}
@@ -27,7 +28,7 @@ export const CartoonItem: React.FC<{ cartoon: IMovie }> = ({ cartoon }) => {
 					</div>
 					<h2 className={style.title}>{cartoon.name}</h2>
 				</div>
-			</div>
+			</Card>
 		</Link>
 	)
 }

@@ -1,11 +1,4 @@
 
-.card{
-  @apply shadow-sm shadow-blue-600 flex  flex-col my-1 duration-300 ease-in-out  hover:shadow-red-600   ;
-  border-radius: 5px;
-  width: 250px;
-
-
-}
 .img{
   @apply w-[200px] h-[250px] flex justify-center;
   object-fit: cover;

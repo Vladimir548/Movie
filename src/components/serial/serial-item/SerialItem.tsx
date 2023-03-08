@@ -3,6 +3,7 @@ import { IMovie } from '../../../models/movie.interface'
 import style from './style.module.scss'
 import star from '../../../img/star.svg'
 import { Link } from 'react-router-dom'
+import { Card } from '../../card/Card'
 
 export const SerialItem: FC<{ serial: IMovie }> = ({ serial }) => {
 	return (
@@ -11,7 +12,7 @@ export const SerialItem: FC<{ serial: IMovie }> = ({ serial }) => {
 			key={serial.id}
 			to={`/cinema/${serial.id}/${serial.name}`}
 		>
-			<div className={style.card}>
+			<Card>
 				<img
 					className={style.img}
 					src={serial.poster?.url}
@@ -27,7 +28,7 @@ export const SerialItem: FC<{ serial: IMovie }> = ({ serial }) => {
 					</div>
 					<h2 className={style.title}>{serial.name}</h2>
 				</div>
-			</div>
+			</Card>
 		</Link>
 	)
 }

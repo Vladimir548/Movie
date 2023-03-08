@@ -18,6 +18,10 @@ export interface IMovie {
 	}
 	genres: IGenre[]
 	countries: ICountries[]
+	premiere: {
+		country: string
+		world: string
+	}
 	budget: {
 		value: number
 		currency: string
@@ -33,6 +37,7 @@ export interface IMovie {
 		url: string
 	}
 	similarMovies: ISimilar[]
+	sequelsAndPrequels: ISequelsAndPrequels[]
 	movieLength: number
 	name: string
 	names: {
@@ -100,6 +105,17 @@ export interface ISeasons {
 }
 
 export interface ISimilar {
+	alternativeName: string
+	id: number
+	name: string
+	type: string
+	poster: {
+		previewUrl: string
+		url: string
+	}
+}
+
+export interface ISequelsAndPrequels {
 	alternativeName: string
 	id: number
 	name: string

@@ -15,7 +15,13 @@
   }
   & div{
     color: #fff;
+
   }
+   @media (max-width:470px) {
+  div{
+    display: none;
+  }
+}
 
 }
 

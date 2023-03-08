@@ -52,3 +52,38 @@ export const DropDown = () => {
 		</div>
 	)
 }
+
+export const DropDownLaptop = () => {
+	const name = useAppSelector(state => state.search.name)
+	const {
+		data: docs,
+		error,
+		isLoading
+	} = useQuery(['docs', name], () => MovieServices.dropMovie(name), {
+		select: ({ docs }) => docs
+	})
+	return (
+		<div>
+			<ul className={'relative'}>
+				{docs?.map(movie => (
+					<li
+						className={
+							'px-3 py-2 flex h-[120px] border-b-2 delay-100 ease-in-out hover:bg-[#003971]'
+						}
+					>
+						<img src={movie.poster?.url} alt='' />
+						<div className=''>
+							<h1 className={' text-[14px] font-bold'}>{movie.name}</h1>
+							<p className={'first-letter:uppercase'}>{movie.type}</p>
+							<span className={'flex text-blue-500'}>
+								<img className={'fill-amber-400'} src={star} alt='' />
+								{Number(movie.rating.kp.toFixed(1))}
+							</span>
+							<span className={'text-gray-400'}>{movie.year}</span>
+						</div>
+					</li>
+				))}
+			</ul>
+		</div>
+	)
+}

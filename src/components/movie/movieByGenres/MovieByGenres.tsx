@@ -9,6 +9,7 @@ import star from '../../../img/star.svg'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { NotFound } from '../../not-found/NotFound'
 import { ButtonBack } from '../../button-back/ButtonBack'
+import { Card } from '../../card/Card'
 
 export const MovieByGenres = () => {
 	useEffect(() => {})
@@ -61,7 +62,7 @@ export const MovieByGenres = () => {
 							key={movieSearch.id}
 							to={`/cinema/${movieSearch.id}/${movieSearch.name}`}
 						>
-							<div className={style.card}>
+							<Card>
 								<img
 									className={style.img}
 									src={movieSearch.poster?.url}
@@ -81,7 +82,7 @@ export const MovieByGenres = () => {
 									</div>
 									<h2 className={style.title}>{movieSearch.name}</h2>
 								</div>
-							</div>
+							</Card>
 						</Link>
 					))}
 				</div>
