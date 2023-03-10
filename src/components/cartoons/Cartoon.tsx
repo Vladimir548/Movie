@@ -6,6 +6,7 @@ import { CartoonItem } from './cartoon-item/CartoonItem'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import style from './style.module.scss'
+import Box from '@mui/material/Box'
 export const Cartoon = () => {
 	const [page, setPage] = useState(1)
 
@@ -23,15 +24,17 @@ export const Cartoon = () => {
 				))}
 			</div>
 			<Stack className={' my-3 flex justify-center mx-auto'} spacing={1}>
-				<Pagination
-					count={docs?.pages}
-					onChange={(_, num) => setPage(num)}
-					shape='circular'
-					color='primary'
-					variant='outlined'
-					size={'large'}
-					className={style.pagination}
-				/>
+				<Box sx={{ size: { xs: 'small', sm: 'large' } }}>
+					<Pagination
+						count={docs?.pages}
+						onChange={(_, num) => setPage(num)}
+						shape='circular'
+						color='primary'
+						variant='outlined'
+						siblingCount={0}
+						className={style.pagination}
+					/>
+				</Box>
 			</Stack>
 		</div>
 	)

@@ -28,7 +28,8 @@ export const MovieServices = {
 			params: {
 				name: name,
 				token: token,
-				sortField: 'rating.kp'
+				sortField: 'rating.kp',
+				limit: 50
 			}
 		})
 
@@ -78,7 +79,8 @@ export const MovieServices = {
 		maxRating?: number,
 		countrie?: string,
 		withYear?: string,
-		byYear?: string
+		byYear?: string,
+		page?: number
 	) {
 		const response = await axios.get<IMovieResponse>(
 			`/movie?rating.kp=${minRating}-${maxRating}&${
@@ -89,7 +91,8 @@ export const MovieServices = {
 			{
 				params: {
 					token: token,
-					limit: 36
+					limit: 36,
+					page: page
 				}
 			}
 		)

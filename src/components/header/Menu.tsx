@@ -102,6 +102,7 @@ export function DrawerAppBar(props: Props) {
 
 	return (
 		<Box
+			className={style.menu}
 			sx={{
 				display: 'flex',
 				justifyContent: 'space-between'

@@ -26,15 +26,17 @@ export const Movie = () => {
 				))}
 			</div>
 			<Stack className={'my-3 flex justify-center mx-auto '} spacing={2}>
-				<Pagination
-					count={docs?.pages}
-					onChange={(_, num) => setPage(num)}
-					shape='circular'
-					color='primary'
-					variant='outlined'
-					size={'large'}
-					className={style.pagination}
-				/>
+				<Box sx={{ size: { xs: 'small', sm: 'large' } }}>
+					<Pagination
+						count={docs?.pages}
+						onChange={(_, num) => setPage(num)}
+						shape='circular'
+						color='primary'
+						variant='outlined'
+						siblingCount={0}
+						className={style.pagination}
+					/>
+				</Box>
 			</Stack>
 		</div>
 	)

@@ -41,14 +41,14 @@ export const HomeMovieServices = {
 		return response.data
 	},
 	async getBackdropMovie() {
-		const response = await axios.get<IMovie>(`/movie/843650`, {
-			params: {
-				token: token,
-
-				selectFields:
-					'backdrop id shortDescription rating.kp name alternativeName'
+		const response = await axios.get<IMovieResponse>(
+			`/movie?id=409424&id=1316601&id=1227967&selectFields=backdrop id shortDescription rating.kp name alternativeName year ageRating videos movieLength`,
+			{
+				params: {
+					token: token
+				}
 			}
-		})
+		)
 		return response.data
 	}
 }

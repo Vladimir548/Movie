@@ -11,8 +11,6 @@ import { ButtonBack } from '../../button-back/ButtonBack'
 import { Card } from '../../card/Card'
 
 export const MovieSearch = () => {
-	const name = useAppSelector(state => state.search.name)
-	const dispatch = useAppDispatch()
 	const params = useParams()
 	const {
 		data: docs,

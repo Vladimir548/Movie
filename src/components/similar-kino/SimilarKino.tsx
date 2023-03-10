@@ -12,10 +12,10 @@ interface ISimiralKino {
 
 export const SimilarKino = ({ similarMovies }: ISimiralKino) => {
 	return (
-		<div className={'flex overflow-x-auto gap-3'}>
+		<div className={'flex  gap-3'}>
 			<Swiper
-				slidesPerView={1}
 				spaceBetween={20}
+				slidesPerView={1}
 				navigation={true}
 				modules={[Navigation]}
 				className={'mySwiper'}

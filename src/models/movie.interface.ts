@@ -10,6 +10,7 @@ export interface IMovie {
 	alternativeName: string
 	description: string
 	enName: string
+	ageRating: number
 	externalId: {
 		imdb: string
 		kpHD: string
@@ -44,6 +45,7 @@ export interface IMovie {
 		name: string
 		_id: string
 	}
+	videos: IVideos
 	poster: {
 		previewUrl: string
 		url: string
@@ -124,4 +126,15 @@ export interface ISequelsAndPrequels {
 		previewUrl: string
 		url: string
 	}
+}
+export interface IVideos {
+	teasers: string
+	trailers: [
+		{
+			name: string
+			site: string
+			type: string
+			url: string
+		}
+	]
 }

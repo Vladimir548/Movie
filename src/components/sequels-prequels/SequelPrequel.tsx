@@ -12,7 +12,6 @@ export const SequelPrequel = ({ sequelsAndPrequels }: ISequelPrequel) => {
 	return (
 		<div className={'flex overflow-x-auto gap-3'}>
 			<Swiper
-				slidesPerView={1}
 				spaceBetween={20}
 				navigation={true}
 				modules={[Navigation]}
@@ -40,8 +39,8 @@ export const SequelPrequel = ({ sequelsAndPrequels }: ISequelPrequel) => {
 					<SwiperSlide key={item.id}>
 						<Link to={`/cinema/${item.id}/${item.name}`}>
 							<img
+								className={'max-h-[300px]'}
 								key={item.poster.url}
-								className={''}
 								src={item.poster.url}
 								alt=''
 							/>
