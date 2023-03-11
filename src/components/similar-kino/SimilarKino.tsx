@@ -5,17 +5,16 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
 import { Link } from 'react-router-dom'
-
-interface ISimiralKino {
+import style from './style.module.scss'
+interface ISimilarKino {
 	similarMovies?: ISimilar[]
 }
 
-export const SimilarKino = ({ similarMovies }: ISimiralKino) => {
+export const SimilarKino = ({ similarMovies }: ISimilarKino) => {
 	return (
-		<div className={'flex  gap-3'}>
+		<div className={' mb-20 gap-3'}>
 			<Swiper
 				spaceBetween={20}
-				slidesPerView={1}
 				navigation={true}
 				modules={[Navigation]}
 				className={'mySwiper'}
@@ -33,21 +32,21 @@ export const SimilarKino = ({ similarMovies }: ISimiralKino) => {
 						spaceBetween: 10
 					},
 					768: {
-						slidesPerView: 4,
+						slidesPerView: 5,
 						spaceBetween: 10
 					}
 				}}
 			>
 				{similarMovies?.map(item => (
-					<SwiperSlide key={item.id}>
+					<SwiperSlide className={style.slide} key={item.id}>
 						<Link to={`/cinema/${item.id}/${item.name}`}>
 							<img
 								key={item.poster.url}
-								className={''}
+								className={style.img}
 								src={item.poster.url}
 								alt=''
 							/>
-							<p key={item.name} className={'text-[14px] font-bold pt-2'}>
+							<p key={item.name} className={style.text}>
 								{item.name}
 							</p>
 						</Link>

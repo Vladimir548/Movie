@@ -77,6 +77,22 @@ export const ItemMovie = () => {
 							</h2>
 							<ul className={style.params}>
 								<li>
+									<span className={style.text_muted}>Режиссер</span>
+									<span>
+										{docs?.persons
+											.filter(person => person.enProfession === 'director')
+											.map(producer => producer.name + ' ')}
+									</span>
+								</li>
+								<li>
+									<span className={style.text_muted}>Сценарист</span>
+									<span>
+										{docs?.persons
+											.filter(person => person.enProfession === 'writer')
+											.map(producer => producer.name + ' ')}
+									</span>
+								</li>
+								<li>
 									<span className={style.text_muted}>Рейтинг</span>
 									<span>
 										{Number(docs?.rating.kp).toFixed(1)} Kp{' '}
@@ -149,7 +165,7 @@ export const ItemMovie = () => {
 					)}
 				</div>
 			</div>
-			<div className={'max-w-[1260px] mx-auto'}>
+			<div className={'max-w-[1260px] px-4 mx-auto'}>
 				<div className={style.block_actors}>
 					<h3 className={'text-[24px] font-bold'}>Актеры</h3>
 					<MovieActors persons={docs?.persons} />

@@ -96,6 +96,8 @@ export interface IPerson {
 	id: number
 	photo: string
 	name: string
+	enProfession: string
+	profession: string
 }
 export interface IGenres {
 	name: string

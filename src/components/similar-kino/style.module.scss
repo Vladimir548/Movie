@@ -1,0 +1,13 @@
+.img{
+  display: block;
+  object-fit: cover;
+}
+
+.text{
+  @apply text-[14px] font-bold pt-2;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
