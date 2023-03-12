@@ -19,10 +19,10 @@ export const TopTen = () => {
 	return (
 		<div>
 			<Swiper
-				navigation={true}
-				modules={[Navigation]}
 				slidesPerView={'auto'}
 				className='mySwiper'
+				navigation={true}
+				modules={[Navigation]}
 				breakpoints={{
 					250: {
 						slidesPerView: 2,
@@ -38,7 +38,9 @@ export const TopTen = () => {
 					},
 					768: {
 						slidesPerView: 4,
-						spaceBetween: 10
+						spaceBetween: 10,
+						navigation: true,
+						modules: [Navigation]
 					}
 				}}
 			>

@@ -24,7 +24,7 @@ import LocalMoviesIcon from '@mui/icons-material/LocalMovies'
 import ChildCareIcon from '@mui/icons-material/ChildCare'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 
-import logo from '../../img/logo/logo_two_variant.svg'
+import logo from '../../img/logo_trace.svg'
 interface Props {
 	window?: () => Window
 }
@@ -123,7 +123,12 @@ export function DrawerAppBar(props: Props) {
 						aria-label='open drawer'
 						edge='start'
 						onClick={handleDrawerToggle}
-						sx={{ mr: 2, display: { sm: 'block', md: 'none' } }}
+						sx={{
+							mr: 2,
+							display: { sm: 'block', md: 'none' },
+							width: '52px',
+							height: '52px'
+						}}
 					>
 						<MenuIcon />
 					</IconButton>

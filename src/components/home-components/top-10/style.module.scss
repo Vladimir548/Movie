@@ -4,9 +4,9 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
-.mySwiper{
-  & .--swiper-navigation-color{
-    color: #fff;
+.swiper{
+  & .swiper-button-next, .swiper-rtl .swiper-button-prev{
+    color: #1a2980;
     background: #00000091;
   }
 }
