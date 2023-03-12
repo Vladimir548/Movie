@@ -25,7 +25,7 @@ export const MovieSearch = () => {
 	)
 
 	return (
-		<div className={'mx-auto'}>
+		<div className={'container'}>
 			<div className=''>
 				<ButtonBack />
 			</div>

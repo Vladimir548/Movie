@@ -79,8 +79,12 @@ export const TopBLock = () => {
 							</li>
 						</ul>
 						<div className={style.btn} data-swiper-parallax='-400'>
-							<button className={style.btn_trailers}>
-								<a target='_blank' href={item?.videos.trailers[0].url}>
+							<button>
+								<a
+									className={style.btn_trailers}
+									target='_blank'
+									href={item?.videos.trailers[0].url}
+								>
 									Трейлер
 								</a>
 							</button>

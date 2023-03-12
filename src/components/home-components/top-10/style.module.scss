@@ -4,7 +4,12 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
-
+.mySwiper{
+  & .--swiper-navigation-color{
+    color: #fff;
+    background: #00000091;
+  }
+}
 
   &:hover img{
     position: relative;
@@ -21,5 +26,23 @@
   top: 10px;
   left: 10px;
   z-index: 4;
+}
+.poster{
+  max-height: 380px;
+}
+.name{
+  font-size: 20px;
+  max-width: 250px;
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+@media (max-width: 450px){
+  .name{
+    font-size: 14px;
+  }
 }
 

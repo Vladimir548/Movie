@@ -17,7 +17,7 @@ export const Movie = () => {
 	} = useQuery(['docs', page], () => MovieServices.getMovie(page), {})
 
 	return (
-		<div>
+		<div className={'container'}>
 			{isLoading && <Loading />}
 
 			<div className='flex flex-wrap justify-center gap-3'>

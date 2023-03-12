@@ -23,11 +23,11 @@ export const NewCinema = () => {
 				className='mySwiper'
 				breakpoints={{
 					250: {
-						slidesPerView: 3,
+						slidesPerView: 2,
 						spaceBetween: 10
 					},
 					320: {
-						slidesPerView: 3,
+						slidesPerView: 2,
 						spaceBetween: 10
 					},
 					640: {
@@ -62,6 +62,7 @@ export const NewCinema = () => {
 								{Number(item.rating.kp).toFixed(1)}
 							</span>
 						</div>
+						<p className={style.name}>{item.name}</p>
 					</SwiperSlide>
 				))}
 			</Swiper>

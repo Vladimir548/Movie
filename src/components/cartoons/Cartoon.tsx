@@ -16,7 +16,7 @@ export const Cartoon = () => {
 		error
 	} = useQuery(['cartoons', page], () => CartoonsServices.getCartoons(page))
 	return (
-		<div>
+		<div className={'container'}>
 			{isLoading && <Loading />}
 			<div className='flex flex-wrap justify-center gap-3'>
 				{docs?.docs.map(cartoon => (

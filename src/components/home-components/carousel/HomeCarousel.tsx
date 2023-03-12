@@ -2,6 +2,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'
 import 'swiper/css/navigation'
+import 'swiper/css'
 import { useQuery } from '@tanstack/react-query'
 import { Navigation } from 'swiper'
 import style from './style.module.scss'
@@ -22,16 +23,24 @@ export const HomeCarousel = () => {
 			<Swiper
 				navigation={true}
 				slidesPerView={'auto'}
+				slidesPerGroup={2}
 				modules={[Navigation]}
 				breakpoints={{
+					250: {
+						slidesPerView: 2,
+						spaceBetween: 10
+					},
 					320: {
 						slidesPerView: 2,
-						spaceBetween: 10,
-						centeredSlides: true
+						spaceBetween: 10
 					},
-					769: {
+					640: {
+						slidesPerView: 3,
+						spaceBetween: 10
+					},
+					768: {
 						slidesPerView: 4,
-						spaceBetween: 20
+						spaceBetween: 10
 					}
 				}}
 				className='mySwiper'
@@ -43,7 +52,6 @@ export const HomeCarousel = () => {
 							<span className={style.name}>{item.name}</span>
 						</Link>
 						<span>
-							Дата выхода:{' '}
 							{new Date(item.premiere?.world).toLocaleDateString('ru-RU')}
 						</span>
 					</SwiperSlide>

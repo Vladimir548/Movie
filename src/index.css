@@ -3,13 +3,29 @@
 @tailwind utilities;
 body{
   @apply bg-black text-gray-100;
-  margin-top: 70px;
+
 }
-@media (max-width: 426px){
-  body{
-    margin-top: 50px;
-  }
-}
+
 img{
   border-radius: 5px;
+}
+.container{
+  margin:70px auto 0 auto ;
+
+}
+@media (max-width: 426px){
+  .container{
+    margin-top: 10px;
+  }
+}
+.mySwiper.--swiper-navigation-color{
+    color: #fff;
+    background: #00000091;
+  display: block;
+  }
+
+@media (max-width: 769px) {
+  .mySwiper.--swiper-navigation-color{
+    display: none;
+  }
 }

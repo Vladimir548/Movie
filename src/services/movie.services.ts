@@ -36,17 +36,16 @@ export const MovieServices = {
 		return response.data
 	},
 	async dropMovie(name: string) {
-		const response = await axios.get<IMovieResponse>(
-			'/movie?search=6-10&field=rating.kp',
-			{
-				params: {
-					token: token,
-					search: name,
-					field: 'name',
-					limit: 8
-				}
+		const response = await axios.get<IMovieResponse>('/movie?', {
+			params: {
+				token: token,
+
+				name: name,
+				'rating.kp': '4 - 10',
+				sortField: 'votes.kp',
+				limit: 30
 			}
-		)
+		})
 		return response.data
 	},
 	async getGenresMovie() {

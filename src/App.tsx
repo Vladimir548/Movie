@@ -17,6 +17,7 @@ function App() {
 	return (
 		<div>
 			<DrawerAppBar />
+
 			<Routes>
 				<Route path={'/'} element={<Home />} />
 				<Route path={'/movie'} element={<Movie />} />

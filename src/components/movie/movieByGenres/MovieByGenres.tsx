@@ -44,7 +44,7 @@ export const MovieByGenres = () => {
 		{}
 	)
 	return (
-		<div>
+		<div className={'container'}>
 			<div>
 				<ButtonBack />
 			</div>

@@ -1,3 +1,16 @@
 .title{
-  @apply font-bold text-2xl py-1
+  @apply font-bold text-4xl py-2
+}
+@media (max-width: 370px) {
+  .title{
+    @apply font-bold text-3xl py-2
+  }
+}
+.block{
+  @apply my-7;
+}
+@media (max-width: 535px) {
+  .block{
+    @apply my-2;
+  }
 }

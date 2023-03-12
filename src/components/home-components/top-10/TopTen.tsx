@@ -22,15 +22,14 @@ export const TopTen = () => {
 				navigation={true}
 				modules={[Navigation]}
 				slidesPerView={'auto'}
-				slidesPerGroup={2}
 				className='mySwiper'
 				breakpoints={{
 					250: {
-						slidesPerView: 3,
+						slidesPerView: 2,
 						spaceBetween: 10
 					},
 					320: {
-						slidesPerView: 3,
+						slidesPerView: 2,
 						spaceBetween: 10
 					},
 					640: {
@@ -47,7 +46,12 @@ export const TopTen = () => {
 					<SwiperSlide key={item.id} className={item.poster?.url}>
 						<div key={item.id} className={style.block}>
 							<Link to={`/cinema/${item.id}/${item.name}`}>
-								<img key={item.poster?.url} src={item.poster?.url} alt={''} />
+								<img
+									className={style.poster}
+									key={item.poster?.url}
+									src={item.poster?.url}
+									alt={''}
+								/>
 							</Link>
 							<div className={style.kino_info}>
 								<span
@@ -61,6 +65,7 @@ export const TopTen = () => {
 									{Number(item.rating.kp).toFixed(1)}
 								</span>
 							</div>
+							<p className={style.name}>{item.name}</p>
 						</div>
 					</SwiperSlide>
 				))}

@@ -9,12 +9,8 @@ import { useAppSelector } from '../../hooks/Hooks'
 export const FavouritesCartoons = () => {
 	const { currentItem } = useAppSelector(state => state.favourites)
 	return (
-		<div>
-			<div
-				className={
-					'mt-5 max-w-[1260px] mx-auto flex flex-wrap justify-center gap-3'
-				}
-			>
+		<div className={'container'}>
+			<div className={' flex flex-wrap justify-center gap-3'}>
 				<div className=''>
 					<ButtonBack />
 				</div>
