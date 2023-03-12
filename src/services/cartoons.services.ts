@@ -7,10 +7,12 @@ export const CartoonsServices = {
 	async getCartoons(page: number) {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
-				token: token,
 				type: 'cartoon',
 				limit: 35,
 				page: page
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data

@@ -12,6 +12,7 @@ import { FavouritesMovie } from './components/favourites/favourites-movie/Favour
 import { FavouritesSeries } from './components/favourites/favourites-serial/FavouritesSeries'
 import { Cartoon } from './components/cartoons/Cartoon'
 import { FavouritesCartoons } from './components/favourites/favourites-cartoons/FavouritesCartoons'
+import { Person } from './components/peson/Person'
 
 function App() {
 	return (
@@ -30,6 +31,7 @@ function App() {
 				<Route path={'/favourites/movie'} element={<FavouritesMovie />} />
 				<Route path={'/favourites/series'} element={<FavouritesSeries />} />
 				<Route path={'/favourites/cartoons'} element={<FavouritesCartoons />} />
+				<Route path={'/person/:id/:name'} element={<Person />} />
 			</Routes>
 		</div>
 	)

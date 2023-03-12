@@ -8,10 +8,12 @@ export const HomeMovieServices = {
 	async getNewCinema() {
 		const response = await axios.get<IMovieResponse>('/movie', {
 			params: {
-				token: token,
 				sortField: 'rating.kp',
 				year: 2023,
 				limit: 30
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data
@@ -19,8 +21,10 @@ export const HomeMovieServices = {
 	async getTopTenCinema() {
 		const response = await axios.get<IMovieResponse>('/movie?top10=!null', {
 			params: {
-				token: token,
 				sortField: 'rating.kp'
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data
@@ -30,11 +34,13 @@ export const HomeMovieServices = {
 			`/movie?premiere.world=15.03.2023-15.06.2023&poster=!null`,
 			{
 				params: {
-					token: token,
 					page: 1,
 					limit: 1000,
 					sortField: 'votes.await',
 					selectFields: 'premiere poster name id'
+				},
+				headers: {
+					'X-API-KEY': token
 				}
 			}
 		)
@@ -44,8 +50,9 @@ export const HomeMovieServices = {
 		const response = await axios.get<IMovieResponse>(
 			`/movie?id=409424&id=1316601&id=1227967&selectFields=backdrop id shortDescription rating.kp name alternativeName year ageRating videos movieLength`,
 			{
-				params: {
-					token: token
+				params: {},
+				headers: {
+					'X-API-KEY': token
 				}
 			}
 		)

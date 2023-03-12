@@ -7,18 +7,21 @@ export const MovieServices = {
 	async getMovie(page: number) {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
-				token: token,
 				page: page,
 				type: 'movie',
 				limit: 35
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data
 	},
 	async getIDMovie(id: string) {
 		const response = await axios.get<IMovie>(`/movie/${id}`, {
-			params: {
-				token: token
+			params: {},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data
@@ -27,9 +30,12 @@ export const MovieServices = {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
 				name: name,
-				token: token,
+
 				sortField: 'rating.kp',
 				limit: 50
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 
@@ -38,12 +44,13 @@ export const MovieServices = {
 	async dropMovie(name: string) {
 		const response = await axios.get<IMovieResponse>('/movie?', {
 			params: {
-				token: token,
-
 				name: name,
 				'rating.kp': '4 - 10',
 				sortField: 'votes.kp',
 				limit: 30
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data
@@ -52,8 +59,9 @@ export const MovieServices = {
 		const response = await axios.get<IGenres[]>(
 			'movie/possible-values-by-field?field=genres.name',
 			{
-				params: {
-					token: token
+				params: {},
+				headers: {
+					'X-API-KEY': token
 				}
 			}
 		)
@@ -64,8 +72,9 @@ export const MovieServices = {
 		const response = await axios.get<IGenres[]>(
 			'movie/possible-values-by-field?field=countries.name&top10=countries.name',
 			{
-				params: {
-					token: token
+				params: {},
+				headers: {
+					'X-API-KEY': token
 				}
 			}
 		)
@@ -89,9 +98,11 @@ export const MovieServices = {
 			}&search=${withYear}-${byYear}&field=year`,
 			{
 				params: {
-					token: token,
 					limit: 36,
 					page: page
+				},
+				headers: {
+					'X-API-KEY': token
 				}
 			}
 		)

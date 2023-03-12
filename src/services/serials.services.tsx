@@ -7,10 +7,12 @@ export const SerialsServices = {
 	async getSerials(pageNumber: number) {
 		const response = await axios.get<IMovieResponse>('/movie', {
 			params: {
-				token: token,
 				type: 'tv-series',
 				limit: 35,
 				page: pageNumber
+			},
+			headers: {
+				'X-API-KEY': token
 			}
 		})
 		return response.data
