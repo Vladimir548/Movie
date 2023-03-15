@@ -21,8 +21,13 @@ img{
 .mySwiper.--swiper-navigation-color{
     color: #fff;
     background: #00000091;
-  display: block;
+    display: block;
   }
+
+.mySwiper.swiper-button-next, .swiper-rtl .swiper-button-prev{
+    color: #ffffff;
+  }
+
 
 @media (max-width: 769px) {
   .mySwiper.--swiper-navigation-color{

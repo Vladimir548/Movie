@@ -15,11 +15,12 @@ export const PersonServices = {
 		})
 		return response.data
 	},
-	async getMovieWithPerson(id: string) {
-		const response = await axios.get<IMovieResponse>(`/movie/${id}`, {
+	async getMovieWithPerson(idM: number[]) {
+		const response = await axios.post<IMovieResponse>(`/movie`, {
 			params: {
 				selectFields: 'poster rating.kp name',
-				limit: 899
+				limit: 5,
+				id: idM
 			},
 			headers: {
 				'X-API-KEY': token

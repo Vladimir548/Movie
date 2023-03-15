@@ -39,11 +39,13 @@ export const Person = () => {
 						</li>
 						<li>
 							<span className={style.text_muted}>Место рождения</span>
-							<span>{persons?.birthPlace[0].value} </span>
+							<span>
+								{persons?.birthPlace[0].value} {persons?.birthPlace[2]?.value}{' '}
+							</span>
 						</li>
 						<li>
 							<span className={style.text_muted}>Профессия</span>
-							<span>{persons?.profession.map(item => item.value + ' ')}</span>
+							<span>{persons?.profession?.map(item => item.value + ' ')}</span>
 						</li>
 						<li>
 							<span className={style.text_muted}>Рост</span>
@@ -54,6 +56,7 @@ export const Person = () => {
 				<h2 className={'text-[20px] font-bold'}>
 					Фильмы с участием {persons?.name}
 				</h2>
+
 				<div className='flex-wrap flex gap-4'>
 					<CinemaWith movies={persons?.movies} />
 				</div>

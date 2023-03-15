@@ -7,9 +7,10 @@ import style from './style.module.scss'
 import Stack from '@mui/material/Stack'
 import Pagination from '@mui/material/Pagination'
 import Box from '@mui/material/Box'
+import { useSearchParams } from 'react-router-dom'
 export const Movie = () => {
 	const [page, setPage] = useState(1)
-
+	const [searchParams, setSearchParams] = useSearchParams()
 	const {
 		data: docs,
 		error,

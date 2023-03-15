@@ -49,7 +49,7 @@ export const ItemMovie = () => {
 					<div className={style.wrapper}>
 						<div className={style.wrapper_col_1}>
 							<img className={style.poster} src={docs?.poster?.url} alt='' />
-							{docs?.videos.trailers[0]?.url !== undefined && !null ? (
+							{docs?.videos?.trailers[0]?.url !== undefined && !null ? (
 								<div className={style.btn}>
 									<a
 										className={style.btn_trailers}

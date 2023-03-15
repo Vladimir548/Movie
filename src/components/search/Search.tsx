@@ -10,6 +10,8 @@ import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 import { DropDown, DropDownLaptop } from '../dropdown/DropDown'
+import searchIcon from '../../img/search.svg'
+import style from './style.module.scss'
 
 export function CustomizedInputBase() {
 	const name = useAppSelector(state => state.search.name)
@@ -20,6 +22,7 @@ export function CustomizedInputBase() {
 	const [dropDown, setDropDown] = useState(false)
 
 	const handleSearchMovie = (e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault()
 		setSearch(e.target.value)
 		if (e.target.value.length >= 2) {
 			setDropDown(true)
@@ -43,35 +46,32 @@ export function CustomizedInputBase() {
 
 	return (
 		<>
-			<Paper
-				sx={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between',
+			<div className={style.box}>
+				<div className={style.container_1}>
+					<input
+						value={search}
+						onChange={handleSearchMovie}
+						type='text'
+						className={style.search}
+						placeholder='Поиск...'
+					/>
 
-					width: { md: '250px' }
-				}}
-			>
-				<InputBase
-					value={search}
-					onChange={handleSearchMovie}
-					sx={{ ml: 1, flex: 1, width: { sm: '150px' } }}
-					placeholder='Поиск...'
-					inputProps={{ 'aria-label': 'search movie' }}
-				/>
-
-				<Divider sx={{ height: 28, m: 0.5 }} orientation='vertical' />
-
-				<IconButton
-					onClick={() => dispatch(getItemDropDown(false))}
-					disabled={search.trim().length < 2}
-					sx={{ p: '0' }}
-				>
-					<Link to={`/movie/search/${name}`}>
-						<SearchIcon />
-					</Link>
-				</IconButton>
-			</Paper>
+					<button disabled={search.trim().length < 2} className={style.icon}>
+						<Link to={`/movie/search/${name}`}>
+							<img src={searchIcon} alt='' />
+						</Link>
+					</button>
+				</div>
+			</div>
+			{/*<IconButton*/}
+			{/*	onClick={() => dispatch(getItemDropDown(false))}*/}
+			{/*	disabled={search.trim().length < 2}*/}
+			{/*	sx={{ p: '0' }}*/}
+			{/*>*/}
+			{/*	<Link to={`/movie/search/${name}`}>*/}
+			{/*		<SearchIcon />*/}
+			{/*	</Link>*/}
+			{/*</IconButton>*/}
 		</>
 	)
 }

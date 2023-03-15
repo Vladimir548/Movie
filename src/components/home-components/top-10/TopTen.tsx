@@ -38,9 +38,7 @@ export const TopTen = () => {
 					},
 					768: {
 						slidesPerView: 4,
-						spaceBetween: 10,
-						navigation: true,
-						modules: [Navigation]
+						spaceBetween: 10
 					}
 				}}
 			>

@@ -12,29 +12,28 @@ interface ICinemaWith {
 }
 
 export const CinemaWith = ({ movies }: ICinemaWith) => {
-	// const idMovie = movies?.map(item => item.id).join(`&id=`)
-
+	// const idMovie = movies?.map(item => item.id)
+	// console.log(idMovie)
 	// const {
 	// 	data: docs,
 	// 	error,
 	// 	isLoading
-	// } = useQuery(['person-with-movie'], () =>
-	// 	PersonServices.getMovieWithPerson(idMovie || '')
+	// } = useQuery(['person-with-movie', { id: idMovie }], () =>
+	// 	PersonServices.getMovieWithPerson(idMovie!)
 	// )
 	return (
 		<div className={' mb-5 gap-3'}>
 			{movies?.map(item => (
-				<Link to={`/cinema/${item.id}/${item.name}`}>
-					{/*<img*/}
-					{/*	key={item.poster.url}*/}
-					{/*	className={style.img}*/}
-					{/*	src={item.poster.url}*/}
-					{/*	alt=''*/}
-					{/*/>*/}
-
-					<p key={item.name} className={style.text}>
-						{item.name}
-					</p>
+				<Link key={Math.random()} to={`/cinema/${item.id}/${item.name}`}>
+					{/*{docs?.docs.map(item => (*/}
+					{/*	<img*/}
+					{/*		key={item.poster.url}*/}
+					{/*		className={style.img}*/}
+					{/*		src={item.poster.url}*/}
+					{/*		alt=''*/}
+					{/*	/>*/}
+					{/*))}*/}
+					<p className={style.text}>{item.name}</p>
 				</Link>
 			))}
 		</div>

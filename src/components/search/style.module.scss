@@ -1,3 +1,94 @@
+.search{
+  @apply text-black rounded-lg;
+  width: 150px;
+  height: 30px;
+
+
+}
+
+.container_1{
+  overflow: hidden;
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.container_1 input.search{
+  width: 300px;
+  height: 40px;
+  background: #2b303b;
+  border: none;
+  outline: none;
+  font-size: 10pt;
+  float: left;
+  color: #fff;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: background .55s ease;
+  -moz-transition: background .55s ease;
+  -ms-transition: background .55s ease;
+  -o-transition: background .55s ease;
+  transition: background .55s ease;
+}
+@media (max-width: 1036px) {
+  .container_1{
+    width: 200px;
+  }
+}
+.container_1 input.search::-webkit-input-placeholder {
+  color: #65737e;
+}
+.container_1 input.search:-moz-placeholder { /* Firefox 18- */
+  color: #65737e;
+}
+.container_1 input.search::-moz-placeholder {  /* Firefox 19+ */
+  color: #65737e;
+}
+.container_1 input.search:-ms-input-placeholder {
+  color: #65737e;
+}
+.container_1 .icon{
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  background: #fff;
+  height: 40px;
+  width: 50px;
+  color: #4f5b66;
+  opacity: 0;
+
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+.container_1:hover button.icon, .container_1:active button.icon, .container_1 input:focus button.icon{
+  outline: none;
+  opacity: 1;
+  margin-left: -50px;
+}
+@media (max-width: 1036px) {
+  .container_1{
+    width: 200px;
+  }
+  .container_1:hover button.icon, .container_1:active button.icon, .container_1 input:focus button.icon{
+    margin-left: -150px;
+  }
+
+}
+.container_1 input:focus
+.container_1:hover .icon{
+  background: white;
+}
+.container_1:hover .icon:hover{
+  background: #d9d9d9;
+}
 .transparent{
   position: relative;
   max-width: 200px;
@@ -22,11 +113,11 @@
   outline: none;
 }
 
-.btn{
-  @apply bg-gray-600 py-[4px] px-[10px] ml-3  rounded-tr-lg rounded-br-lg  hover:bg-gray-500
+.icon{
+  @apply bg-white py-[4px] px-[10px] ml-3  rounded-tr-lg rounded-br-lg  hover:bg-gray-500
 }
-.btn:disabled{
-  @apply bg-gray-400
+.icon:disabled{
+  display: none;
 }
 .dropdown{
   @apply bg-[#505051] absolute top-[36px] left-0 w-full h-[200px] z-10 rounded-lg overflow-y-scroll

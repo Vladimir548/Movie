@@ -4,12 +4,6 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
-.swiper{
-  & .swiper-button-next, .swiper-rtl .swiper-button-prev{
-    color: #1a2980;
-    background: #00000091;
-  }
-}
 
   &:hover img{
     position: relative;
