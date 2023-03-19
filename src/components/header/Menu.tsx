@@ -80,7 +80,7 @@ export function DrawerAppBar(props: Props) {
 						>
 							<NavLink
 								className={({ isActive }) =>
-									isActive ? 'text-red-700' : undefined
+									isActive ? style.activeBtn : undefined
 								}
 								to={item.link}
 							>
@@ -173,7 +173,7 @@ export function DrawerAppBar(props: Props) {
 								{' '}
 								<NavLink
 									className={({ isActive }) =>
-										isActive ? 'text-red-700' : undefined
+										isActive ? style.activeBtn : undefined
 									}
 									to={item.link}
 								>

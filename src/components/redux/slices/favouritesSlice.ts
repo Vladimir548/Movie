@@ -15,7 +15,6 @@ const favouritesSlice = createSlice({
 	reducers: {
 		addToFavorites(state, action: PayloadAction<IMovie>) {
 			state.currentItem = [...state.currentItem, action.payload]
-			console.log(state.currentItem)
 		},
 
 		removeToFavorites(state, action: PayloadAction<number>) {

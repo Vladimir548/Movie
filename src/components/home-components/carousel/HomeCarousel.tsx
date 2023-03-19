@@ -39,7 +39,7 @@ export const HomeCarousel = () => {
 						spaceBetween: 10
 					},
 					768: {
-						slidesPerView: 4,
+						slidesPerView: 5,
 						spaceBetween: 10
 					}
 				}}

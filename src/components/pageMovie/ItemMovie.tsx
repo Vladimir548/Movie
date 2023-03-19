@@ -16,6 +16,7 @@ import {
 import { ButtonBack } from '../button-back/ButtonBack'
 import { Loading } from '../loading/Loading'
 import { SequelPrequel } from '../sequels-prequels/SequelPrequel'
+import { IsFavourites } from '../is-favourites/IsFavourites'
 export const ItemMovie = () => {
 	const dispatch = useAppDispatch()
 	const { currentItem } = useAppSelector(state => state.favourites)
@@ -42,14 +43,14 @@ export const ItemMovie = () => {
 					backgroundImage: `url(${docs?.backdrop.url})`,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					backgroundPosition: 'center'
+					backgroundPosition: ' 0 0'
 				}}
 			>
 				<div className={style.container}>
 					<div className={style.wrapper}>
 						<div className={style.wrapper_col_1}>
 							<img className={style.poster} src={docs?.poster?.url} alt='' />
-							{docs?.videos?.trailers[0]?.url !== undefined && !null ? (
+							{docs?.videos?.trailers[0]?.url !== undefined && null ? (
 								<div className={style.btn}>
 									<a
 										className={style.btn_trailers}
@@ -67,20 +68,7 @@ export const ItemMovie = () => {
 						<div className={style.wrapper_col_2}>
 							<div className='flex justify-between'>
 								<h1 className={style.title}>{docs?.name}</h1>
-								<span
-									className='cursor-pointer'
-									onClick={
-										isInFavourites
-											? () => dispatch(removeToFavorites(docs!.id))
-											: () => dispatch(addToFavorites(docs!))
-									}
-								>
-									{isInFavourites ? (
-										<FavoriteIcon color={'error'} />
-									) : (
-										<FavoriteBorderIcon color={'error'} />
-									)}
-								</span>
+								<IsFavourites typeCinema={docs} />
 							</div>
 							<h6 className={style.subtitle}>{docs?.alternativeName}</h6>
 							<p className={style.description}>{docs?.shortDescription}</p>

@@ -4,7 +4,7 @@ import { MovieServices } from '../../../services/movie.services'
 
 import { useAppDispatch, useAppSelector } from '../../hooks/Hooks'
 import { addGenres, removeGenres } from '../../redux/slices/genresSLice'
-import { Link, useParams } from 'react-router-dom'
+
 import { IGenres } from '../../../models/movie.interface'
 
 import style from './style.module.scss'
@@ -15,7 +15,6 @@ export const SortGenres = () => {
 		error,
 		isLoading
 	} = useQuery(['docs'], () => MovieServices.getGenresMovie())
-	console.log(genres)
 	const dispatch = useAppDispatch()
 
 	const genreItem = useAppSelector(state => state.genres.genre)

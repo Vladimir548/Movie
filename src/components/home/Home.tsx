@@ -2,7 +2,7 @@ import React from 'react'
 import { NewCinema } from '../home-components/new-kino/NewCinema'
 
 import style from './style.module.scss'
-import { TopTen } from '../home-components/top-10/TopTen'
+import { WatchNow } from '../home-components/watch-now/WatchNow'
 import { HomeCarousel } from '../home-components/carousel/HomeCarousel'
 import { TopBLock } from '../home-components/top-show-block/TopBLock'
 
@@ -19,6 +19,7 @@ export const Home = () => {
 						<HomeCarousel />
 					</div>
 				</div>
+
 				<div>
 					<div className={style.block}>
 						<h2 className={style.title}>Новинки</h2>
@@ -29,7 +30,7 @@ export const Home = () => {
 					<div className={style.block}>
 						<h2 className={style.title}>Сейчас смотрят</h2>
 						<div className=''>
-							<TopTen />
+							<WatchNow />
 						</div>
 					</div>
 				</div>

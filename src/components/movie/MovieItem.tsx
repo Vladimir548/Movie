@@ -1,17 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { IMovie } from '../../models/movie.interface'
 import { Link } from 'react-router-dom'
 
 import style from './style.module.scss'
 import star from '../../img/star.svg'
-import { Card } from '../card/Card'
-import {
-	addToFavorites,
-	removeToFavorites
-} from '../redux/slices/favouritesSlice'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useAppDispatch, useAppSelector } from '../hooks/Hooks'
+
 import { IsFavourites } from '../is-favourites/IsFavourites'
 
 export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {

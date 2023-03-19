@@ -9,7 +9,7 @@ export const MovieServices = {
 			params: {
 				page: page,
 				type: 'movie',
-				limit: 35
+				limit: 36
 			},
 			headers: {
 				'X-API-KEY': token
@@ -30,7 +30,6 @@ export const MovieServices = {
 		const response = await axios.get<IMovieResponse>(`/movie`, {
 			params: {
 				name: name,
-
 				sortField: 'rating.kp',
 				limit: 50
 			},
@@ -47,7 +46,7 @@ export const MovieServices = {
 				name: name,
 				'rating.kp': '4 - 10',
 				sortField: 'votes.kp',
-				limit: 30
+				limit: 40
 			},
 			headers: {
 				'X-API-KEY': token

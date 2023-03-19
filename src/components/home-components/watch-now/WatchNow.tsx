@@ -5,9 +5,9 @@ import style from './style.module.scss'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { HomeMovieServices } from '../../../services/home-movie-services'
-import 'swiper/swiper.min.css'
+import 'swiper/css'
 import 'swiper/css/navigation'
-export const TopTen = () => {
+export const WatchNow = () => {
 	const {
 		data: docs,
 		isLoading,
@@ -19,6 +19,7 @@ export const TopTen = () => {
 	return (
 		<div>
 			<Swiper
+				style={{}}
 				slidesPerView={'auto'}
 				className='mySwiper'
 				navigation={true}
@@ -37,7 +38,7 @@ export const TopTen = () => {
 						spaceBetween: 10
 					},
 					768: {
-						slidesPerView: 4,
+						slidesPerView: 5,
 						spaceBetween: 10
 					}
 				}}

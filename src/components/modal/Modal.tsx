@@ -9,7 +9,7 @@ import { CloseBtn } from '../sort/button/CloseBtn'
 import TuneIcon from '@mui/icons-material/Tune'
 import { ClearBtn } from '../sort/button/ClearBtn'
 import IconButton from '@mui/material/IconButton'
-
+import stylecss from './style.module.scss'
 interface PropsModal {
 	children: React.ReactNode
 	name?: string
@@ -21,8 +21,7 @@ const style = {
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
 	width: { xs: '300px', sm: '400px' },
-	bgcolor: 'background.black',
-	border: '2px solid #000',
+
 	boxShadow: 24,
 	pt: 2,
 	px: 4,
@@ -51,10 +50,7 @@ export function ChildModal({ children, name, dispatchFunc }: PropsModal) {
 				aria-labelledby='child-modal-title'
 				aria-describedby='child-modal-description'
 			>
-				<Box
-					className={'bg-black/[.9] rounded-lg overflow-y-auto'}
-					sx={{ ...style }}
-				>
+				<Box className={stylecss.modal} sx={{ ...style }}>
 					{children}
 					<div className='flex justify-center items-center gap-4 mt-2'>
 						<CloseBtn>
@@ -97,7 +93,7 @@ export function NestedModal({ children }: PropsModal) {
 				aria-labelledby='parent-modal-title'
 				aria-describedby='parent-modal-description'
 			>
-				<Box className={'bg-black/[.9] rounded-lg'} sx={{ ...style }}>
+				<Box className={stylecss.modal} sx={{ ...style }}>
 					{children}
 					<div className='flex justify-center gap-2'>
 						<ApplyBtn>
