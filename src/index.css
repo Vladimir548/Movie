@@ -18,19 +18,27 @@ img{
     margin-top: 50px;
   }
 }
-.mySwiper.--swiper-navigation-color{
-    color: #fff;
-    background: #00000091;
-    display: block;
-  }
 
-.mySwiper.swiper-button-next, .swiper-rtl .swiper-button-prev{
-    color: #ffffff;
-  }
 
+.swiper-button-next,.swiper-button-prev{
+    color: #fff !important;
+    background-image: linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.15)),linear-gradient(rgba(59,58,62,.1),rgba(59,58,62,.1)) !important;
+    width: 50px !important;
+    height: 70px !important;
+    border-radius: 10px !important;
+    backdrop-filter: blur(10px) !important;
+    transition: .3s ease-in-out;
+    display: flex !important;
+  }
+.swiper-button-next:hover,.swiper-button-prev:hover{
+    transform: scale(1.1) !important;
+}
 
 @media (max-width: 769px) {
-  .mySwiper.--swiper-navigation-color{
-    display: none;
+    .swiper-button-next,.swiper-button-prev{
+    display: none !important;
   }
+}
+.swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled{
+    pointer-events: auto !important;
 }

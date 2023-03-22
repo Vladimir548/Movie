@@ -33,7 +33,7 @@ export const ItemMovie = () => {
 	const isInFavourites = currentItem.some(item => item.id === docs?.id)
 	if (error) return <h1>Произошла ошибка:(</h1>
 	return (
-		<div className={'bg-neutral-700'}>
+		<div>
 			<div className=''>{isLoading && <Loading />}</div>
 			<div>
 				<ButtonBack />
