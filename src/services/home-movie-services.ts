@@ -61,5 +61,20 @@ export const HomeMovieServices = {
 			}
 		)
 		return response.data
+	},
+	async getNewsCinema(page: number) {
+		const response = await axios.get<IMovieResponse>('/movie', {
+			params: {
+				sortField: 'votes.kp',
+				sortType: -1,
+				year: '2021 - 2024',
+				limit: 32,
+				page: page
+			},
+			headers: {
+				'X-API-KEY': token
+			}
+		})
+		return response.data
 	}
 }

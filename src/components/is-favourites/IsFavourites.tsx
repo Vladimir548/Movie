@@ -54,7 +54,7 @@ export const IsFavourites = ({ typeCinema }: IIsFavourites) => {
 			</span>
 			<div>
 				<div className={isVisible === true ? style.alert : style.alertNone}>
-					<p className={'py-4 px-4'}>
+					<p className={'py-4 px-4 whitespace-nowrap'}>
 						{add === true ? 'Добавлено в избранное' : 'Удалено из избранного'}
 					</p>
 				</div>

@@ -5,6 +5,7 @@ import style from './style.module.scss'
 import { WatchNow } from '../home-components/watch-now/WatchNow'
 import { HomeCarousel } from '../home-components/carousel/HomeCarousel'
 import { TopBLock } from '../home-components/top-show-block/TopBLock'
+import { Link } from 'react-router-dom'
 
 export const Home = () => {
 	return (
@@ -22,7 +23,9 @@ export const Home = () => {
 
 				<div>
 					<div className={style.block}>
-						<h2 className={style.title}>Новинки</h2>
+						<Link to={'/newcinema'}>
+							<h2 className={style.title}>Новинки</h2>
+						</Link>
 						<div className=''>
 							<NewCinema key={2} />
 						</div>

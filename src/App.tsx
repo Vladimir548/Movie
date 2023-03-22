@@ -13,6 +13,8 @@ import { FavouritesSeries } from './components/favourites/favourites-serial/Favo
 import { Cartoon } from './components/cartoons/Cartoon'
 import { FavouritesCartoons } from './components/favourites/favourites-cartoons/FavouritesCartoons'
 import { Person } from './components/peson/Person'
+import { NewCinema } from './components/home-components/new-kino/NewCinema'
+import { NewsCinema } from './components/news-cinema/NewsCinema'
 
 function App() {
 	return (
@@ -32,6 +34,7 @@ function App() {
 				<Route path={'/favourites/series'} element={<FavouritesSeries />} />
 				<Route path={'/favourites/cartoons'} element={<FavouritesCartoons />} />
 				<Route path={'/person/:id/:name'} element={<Person />} />
+				<Route path={'/newcinema'} element={<NewsCinema />} />
 			</Routes>
 		</div>
 	)

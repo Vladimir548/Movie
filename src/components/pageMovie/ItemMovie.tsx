@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { MovieServices } from '../../services/movie.services'
@@ -20,6 +20,9 @@ import { IsFavourites } from '../is-favourites/IsFavourites'
 export const ItemMovie = () => {
 	const dispatch = useAppDispatch()
 	const { currentItem } = useAppSelector(state => state.favourites)
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	const params = useParams()
 	const [descrip, setDescrip] = useState(false)
@@ -50,7 +53,7 @@ export const ItemMovie = () => {
 					<div className={style.wrapper}>
 						<div className={style.wrapper_col_1}>
 							<img className={style.poster} src={docs?.poster?.url} alt='' />
-							{docs?.videos?.trailers[0]?.url !== undefined && null ? (
+							{docs?.videos?.trailers[0]?.url !== undefined ? (
 								<div className={style.btn}>
 									<a
 										className={style.btn_trailers}
@@ -124,7 +127,7 @@ export const ItemMovie = () => {
 								</li>
 								<li>
 									<span className={style.text_muted}>Бюджет</span>{' '}
-									{docs?.budget.value} {docs?.budget.currency}
+									{docs?.budget?.value} {docs?.budget?.currency}
 								</li>
 								<li>
 									<span className={style.text_muted}>Время</span>
